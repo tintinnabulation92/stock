@@ -1,4 +1,4 @@
-# React + Redux + Saga base project
+# React + Redux + Saga as a base for AgroStock project
 
 A simple base for React and Redux app with webpack and css compilation support.
 
