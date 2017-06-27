@@ -7,7 +7,7 @@ import OfferPresenterComponent from '../../components/offerPresenterComponent/of
 
 
 import { fetchOffers } from './offersActions';
-import { makeSelectHelloMessage } from './offersSelectors';
+import { makeSelectOffer } from './offersSelectors';
 import cls from './offerPresenter.css';
 
 const OffersPresenter = ({fetchOffers, offers})=>(
@@ -25,7 +25,7 @@ OffersPresenter.propTypes = {
 
 
 const mapStateToProps = createStructuredSelector({
-  offers: makeSelectHelloMessage(),
+  offers: makeSelectOffer(),
 });
 
 const mapDispatchToProps = {

@@ -4,9 +4,9 @@ import cls from "./offerPresenterComponent.css"
 const OfferPresenterComponent = ({offers}) =>
     <div className={cls.offersWrapper}>
         {offers && offers.map((offer) =>
-            <ol key={offer.id}>
+            <ul key={offer.id}>
                 <li>{offer.name} - cena: {offer.price}</li>
-            </ol>)}
+            </ul>)}
     </div>
 
 OfferPresenterComponent.propTypes = {

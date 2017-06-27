@@ -7,7 +7,7 @@ import {
   offersReceived,
 } from './offersActions';
 
-export function* fetchMessageSaga(action) {
+export function* fetchOffersSaga(action) {
   const endpoint = 'offers';
   const contextPath = 'http://localhost:9090';
   const url = `${contextPath}/api/${endpoint}`
@@ -27,7 +27,7 @@ export function* fetchMessageSaga(action) {
 }
 
 export function* rootSaga() {
-  const watchSendFiles = yield takeLatest(FETCH_OFFERS, fetchMessageSaga);
+  const watchSendFiles = yield takeLatest(FETCH_OFFERS, fetchOffersSaga);
 }
 
 export default rootSaga;

@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 
 const selectExampleDomain = () => (state) => state.offersReducer;
 
-const makeSelectHelloMessage = () => createSelector(
+const makeSelectOffer = () => createSelector(
   selectExampleDomain(),
   (substate) => {
     return substate.offers;
@@ -10,5 +10,5 @@ const makeSelectHelloMessage = () => createSelector(
 );
 
 export {
-  makeSelectHelloMessage,
+  makeSelectOffer,
 };
