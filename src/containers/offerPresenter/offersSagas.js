@@ -1,33 +1,35 @@
 import {take, takeLatest, call, cancel, put, select} from 'redux-saga/effects';
+import {getContext} from '../../utils/context';
 
 import request from '../../utils/request'
 
 import {
-  FETCH_OFFERS,
-  offersReceived,
+    FETCH_OFFERS,
+    offersReceived,
 } from './offersActions';
 
 export function* fetchOffersSaga(action) {
-  const endpoint = 'offers';
-  const contextPath = 'http://localhost:9090';
-  const url = `${contextPath}/api/${endpoint}`
+    const endpoint = 'offers';
+    const contextPath = getContext();
+    const url = `${contextPath}/api/${endpoint}`
+    console.log(url)
     const options = {
-    method: 'GET',
-    mode: 'cors',
-    headers: { 'Content-Type': 'application/json' },
-  }
+        method: 'GET',
+        mode: 'cors',
+        headers: {'Content-Type': 'application/json'},
+    }
 
-  try {
-    const res = yield call(request, url, options);
-    console.log(res);
-    yield put(offersReceived(res.json));
-  } catch (err) {
-    yield put(offersReceived('ERROR WHILE FETCHING OFFERS'));
-  }
+    try {
+        const res = yield call(request, url, options);
+        console.log(res);
+        yield put(offersReceived(res.json));
+    } catch (err) {
+        yield put(offersReceived('ERROR WHILE FETCHING OFFERS'));
+    }
 }
 
 export function* rootSaga() {
-  const watchSendFiles = yield takeLatest(FETCH_OFFERS, fetchOffersSaga);
+    const watchSendFiles = yield takeLatest(FETCH_OFFERS, fetchOffersSaga);
 }
 
 export default rootSaga;
