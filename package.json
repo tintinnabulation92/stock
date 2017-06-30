@@ -8,7 +8,7 @@
     "start": "node server/server.js",
     "dev": "node server/webpack.server.js",
     "build": "webpack --config webpack/webpack.prod.config.js",
-    "test": "ava -c 8"
+    "test": "jest"
   },
   "author": "JIT Solutions",
   "license": "",
