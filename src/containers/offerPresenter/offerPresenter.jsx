@@ -10,9 +10,9 @@ import {makeSelectOffer, makeSelectShowModal} from './offersSelectors';
 import cls from './offerPresenter.css';
 
 const OffersPresenter = ({fetchOffers, offers, showModal, modalVisible, addOffer}) => {
-    console.log('modal', modalVisible);
+
     return (
-        <div className={cls.test}>
+        <div className={cls.main}>
             <h2>Witaj na naszej giełdzie!</h2>
             <button onClick={fetchOffers}>Pokaż oferty!</button>
             <button onClick={showModal}>Dodaj ofertę!</button>

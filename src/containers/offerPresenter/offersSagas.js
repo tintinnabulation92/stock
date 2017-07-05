@@ -14,7 +14,6 @@ export function* fetchOffersSaga(action) {
     const endpoint = 'offers';
     const contextPath = getContext();
     const url = `${contextPath}/api/${endpoint}`
-    console.log(url)
     const options = {
         method: 'GET',
         mode: 'cors',
@@ -23,7 +22,6 @@ export function* fetchOffersSaga(action) {
 
     try {
         const res = yield call(request, url, options);
-        console.log(res);
         yield put(offersReceived(res.json));
     } catch (err) {
         yield put(offersReceived('ERROR WHILE FETCHING OFFERS'));
@@ -34,7 +32,6 @@ export function* addOfferSaga(action) {
     const endpoint = 'offer/create';
     const contextPath = getContext();
     const url = `${contextPath}/api/${endpoint}`
-    console.log(url)
     const options = {
         method: 'POST',
         mode: 'cors',
@@ -44,7 +41,6 @@ export function* addOfferSaga(action) {
 
     try {
         const res = yield call(request, url, options);
-        console.log(res);
         yield put(addOfferSuccess());
     } catch (err) {
         yield put(addOfferSuccess('ERROR WHILE SENDING OFFER'));

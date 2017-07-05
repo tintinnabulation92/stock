@@ -9,7 +9,7 @@ const AddOfferComponent = ({isOpen, showModal, addOffer}) => {
     return (
         <div className={cls.modalDialog}>
             <Modal id="addOffer" isOpen={isOpen} contentLabel="Modal">
-                <button onClick={showModal}>Cancel</button>
+                <button onClick={showModal}>Zamknij</button>
                 <h2>Dodaj ofertę:</h2>
                 <AddOfferForm onSubmit={addOffer}/>
 
