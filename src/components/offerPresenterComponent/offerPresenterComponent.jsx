@@ -14,3 +14,4 @@ OfferPresenterComponent.propTypes = {
 }
 
 export default OfferPresenterComponent
+
