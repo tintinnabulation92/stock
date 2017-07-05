@@ -1,3 +1,16 @@
-.messageWrapper {
-    font-weight: bold;
+table {
+    border-spacing: 7px;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 10px;
+    text-align: center;
+}
+
+.jsonOdd {
+    background: #eee;
+}
+table, th, td {
+    border: 1px solid black;
 }
