@@ -1,8 +1,9 @@
 import React, {PropTypes} from "react";
+import cls from "./offerPresenterComponent.css";
 
 const OfferTable = ({offers}) => {
     return (
-        <table>
+        <table className="cls">
             <thead>
             <tr>
                 <th>Nazwa</th>
