@@ -1,9 +1,8 @@
 import React, {PropTypes} from "react";
-import cls from "./offerPresenterComponent.css";
 
-const OfferTable = ({offers}) => {
-    return (
-        <table className="cls">
+const OfferTable = ({offers}) =>
+    (
+        <table>
             <thead>
             <tr>
                 <th>Nazwa</th>
@@ -17,7 +16,6 @@ const OfferTable = ({offers}) => {
             </thead>
             <tbody>
             {offers && offers.map((offer) =>
-
                 <tr key={offer.id}>
                     <td>{offer.name.toLowerCase()}</td>
                     <td>{offer.offerType.toLowerCase()}</td>
@@ -30,7 +28,6 @@ const OfferTable = ({offers}) => {
             </tbody>
         </table>
     );
-};
 
 OfferTable.propTypes = {
     offers: PropTypes.array,

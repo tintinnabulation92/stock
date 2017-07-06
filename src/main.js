@@ -1,4 +1,5 @@
 import 'babel-polyfill';
+import cls from "./global.css";
 
 import React from 'react'
 import { render } from 'react-dom'
