@@ -1,13 +1,13 @@
 import React, {PropTypes} from 'react'
 import {Field, reduxForm} from 'redux-form'
+import cls from './addOfferForm.css'
 
 const OfferForm = ({handleSubmit}) =>
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="formAttribute">
         <div>
             <label htmlFor="name">Nazwa oferty </label>
             <Field name="name" component="input" type="text" placeholder="Nazwa oferty" required/>
         </div>
-        <br/>
         <div>
             <label htmlFor="offerType">Typ oferty </label>
             <Field name="offerType" component="select" required>
@@ -17,13 +17,11 @@ const OfferForm = ({handleSubmit}) =>
                 <option value="EXCHANGE">Exchange</option>
             </Field>
         </div>
-        <br/>
         <div>
             <label htmlFor="category">Kategoria </label>
             <label><Field name="category" component="input" type="radio" value="VEGETABLES"/> Vegetables</label>
             <label><Field name="category" component="input" type="radio" value="FRUITS"/> Fruits</label>
         </div>
-        <br/>
         <div>
             <label htmlFor="quality">Klasa jakości </label>
             <Field name="quality" component="select">
@@ -33,12 +31,10 @@ const OfferForm = ({handleSubmit}) =>
                 <option value="III">III</option>
             </Field>
         </div>
-        <br/>
         <div>
             <label htmlFor="price">Cena jednostkowa </label>
             <Field name="price" component="input" type="number" placeholder="Cena za jednostkę" required/>
         </div>
-        <br/>
         <div>
             <label htmlFor="unit">Jednostka </label>
             <Field name="unit" component="select" required>
@@ -47,12 +43,10 @@ const OfferForm = ({handleSubmit}) =>
                 <option value="T">t</option>
             </Field>
         </div>
-        <br/>
         <div>
             <label htmlFor="description">Opis oferty </label>
             <Field name="description" component="textarea" type="text" placeholder="Podaj dodatkowe informacje" />
         </div>
-        <br/>
         <div>
             <label htmlFor="transport">Zapewniam transport </label>
             <Field name="transport" component="input" type="checkbox" />

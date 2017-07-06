@@ -7,7 +7,9 @@ import {
     FETCH_OFFERS,
     ADD_OFFER,
     offersReceived,
-    addOfferSuccess
+    addOfferSuccess,
+    fetchOffersError,
+    addOfferError
 } from './offersActions';
 
 export function* fetchOffersSaga(action) {
@@ -24,7 +26,7 @@ export function* fetchOffersSaga(action) {
         const res = yield call(request, url, options);
         yield put(offersReceived(res.json));
     } catch (err) {
-        yield put(offersReceived('ERROR WHILE FETCHING OFFERS'));
+        yield put(fetchOffersError('ERROR WHILE FETCHING OFFERS'));
     }
 }
 
@@ -43,7 +45,7 @@ export function* addOfferSaga(action) {
         const res = yield call(request, url, options);
         yield put(addOfferSuccess());
     } catch (err) {
-        yield put(addOfferSuccess('ERROR WHILE SENDING OFFER'));
+        yield put(addOfferError('ERROR WHILE SENDING OFFER'));
     }
 }
 

@@ -1,8 +1,7 @@
 import {
     OFFERS_RECEIVED,
     SHOW_MODAL,
-    ADD_OFFER,
-    ADD_OFFER_SUCCESS
+    ADD_OFFER
 } from './offersActions';
 
 const initialState = {
@@ -24,10 +23,6 @@ function offersReducer(state = initialState, action) {
         case ADD_OFFER:
             return Object.assign({}, state, {
                 form: action.form,
-
-            });
-        case ADD_OFFER_SUCCESS:
-            return Object.assign({}, state, {
 
             });
         default:
