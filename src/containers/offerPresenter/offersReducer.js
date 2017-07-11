@@ -12,6 +12,9 @@ function offersReducer(state = initialState, action) {
       return Object.assign({}, state, {
         offers: action.offers
       });
+
+    //inny case
+
     default:
       return state;
   }

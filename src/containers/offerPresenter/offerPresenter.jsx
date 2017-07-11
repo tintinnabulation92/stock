@@ -16,6 +16,7 @@ class OffersPresenter extends React.PureComponent {
         return (
             <div className={cls.test}>
                 <h2>Witaj na naszej giełdzie!</h2>
+
                 <OfferPresenterComponent offers={this.props.offers}/>
             </div>
         );
