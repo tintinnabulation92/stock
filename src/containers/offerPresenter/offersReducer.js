@@ -1,5 +1,5 @@
 import {
-  OFFERS_RECEIVED
+  OFFERS_RECEIVED, SHOW_OFFER
 } from './offersActions';
 
 const initialState = {
@@ -13,7 +13,10 @@ function offersReducer(state = initialState, action) {
         offers: action.offers
       });
 
-    //inny case
+      case SHOW_OFFER:
+          return Object.assign({}, state, {
+              offers: action.offers
+          });
 
     default:
       return state;

@@ -4,6 +4,7 @@ import {getContext} from '../../utils/context';
 import request from '../../utils/request'
 
 import {
+    SHOW_OFFER,
     FETCH_OFFERS,
     offersReceived,
 } from './offersActions';
@@ -30,6 +31,8 @@ export function* fetchOffersSaga(action) {
 
 export function* rootSaga() {
     const watchSendFiles = yield takeLatest(FETCH_OFFERS, fetchOffersSaga);
+
+    const watchClickedButton = yield takeLatest(SHOW_OFFER,fetchOffersSaga);
 }
 
 export default rootSaga;

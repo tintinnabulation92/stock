@@ -12,8 +12,8 @@ export const offersReceived = (offers) => ({
     offers,
 });
 
-export const showOffer = (offers) => ({
+export const showOffer = () => ({
     type: SHOW_OFFER,
-    offers,
+
 });
 
