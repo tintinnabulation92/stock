@@ -1,7 +1,7 @@
 import React, {PropTypes} from "react";
 
-const OfferTable = ({offers}) =>  (
-
+const OfferTable = ({offers}) =>
+    (
         <table>
             <thead>
             <tr>
@@ -16,7 +16,6 @@ const OfferTable = ({offers}) =>  (
             </thead>
             <tbody>
             {offers && offers.map((offer) =>
-
                 <tr key={offer.id}>
                     <td>{offer.name.toLowerCase()}</td>
                     <td>{offer.offerType.toLowerCase()}</td>
