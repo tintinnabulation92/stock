@@ -1,35 +1,37 @@
-import React, { PropTypes } from "react";
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
+import React, {PropTypes} from "react";
+import {connect} from "react-redux";
+import {createStructuredSelector} from "reselect";
+import OfferPresenterComponent from "../../components/offerPresenterComponent/offerPresenterComponent";
+import {fetchOffers} from "./offersActions";
+import {makeSelectOffer} from "./offersSelectors";
 
+class OffersPresenter extends React.PureComponent {
 
-import OfferPresenterComponent from '../../components/offerPresenterComponent/offerPresenterComponent'
+    componentWillMount() {
+        this.props.fetchOffers();
+    }
 
-
-import { fetchOffers } from './offersActions';
-import { makeSelectOffer } from './offersSelectors';
-import cls from './offerPresenter.css';
-
-const OffersPresenter = ({fetchOffers, offers})=>(
-    <div className={cls.test}>
-        <h2>Witaj na naszej giełdzie!</h2>
-        <button onClick={fetchOffers}>Pokaż oferty!</button>
-        <OfferPresenterComponent offers={offers} />
-    </div>
-);
+    render() {
+        return (
+            <div>
+                <h2>Witaj na naszej giełdzie!</h2>
+                <OfferPresenterComponent offers={this.props.offers}/>
+            </div>
+        );
+    }
+}
 
 OffersPresenter.propTypes = {
     fetchOffers: PropTypes.func.isRequired,
     offers: PropTypes.array,
 };
 
-
 const mapStateToProps = createStructuredSelector({
-  offers: makeSelectOffer(),
+    offers: makeSelectOffer(),
 });
 
 const mapDispatchToProps = {
-  fetchOffers,
+    fetchOffers,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(OffersPresenter);
