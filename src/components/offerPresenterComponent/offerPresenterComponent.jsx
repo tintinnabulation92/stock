@@ -19,10 +19,10 @@ const OfferTable = ({offers}) =>
                 <tr key={offer.id}>
                     <td>{offer.name.toLowerCase()}</td>
                     <td>{offer.offerType.toLowerCase()}</td>
-                    <td>{offer.category.toLowerCase()}</td>
+                    <td>{offer.productGroup.toLowerCase()}</td>
                     <td>{offer.quality}</td>
                     <td>{offer.price}</td>
-                    <td>{offer.unit.toLowerCase()}</td>
+                    <td>{offer.massUnit.toLowerCase()}</td>
                     <td>{new Date(offer.publishDate).toLocaleDateString()}</td>
                 </tr>)}
             </tbody>
