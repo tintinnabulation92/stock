@@ -9,6 +9,16 @@ const makeSelectOffer = () => createSelector(
   }
 );
 
+const makeSelectDetailsOffer = () => createSelector(
+    selectExampleDomain(),
+    (substate) => {
+        return substate.offer;
+    }
+);
+
 export {
   makeSelectOffer,
+    makeSelectDetailsOffer
+
 };
+

@@ -30,7 +30,7 @@ const OfferTable = ({offers}) =>
                     <td>{offer.price}</td>
                     <td>{offer.unit.toLowerCase()}</td>
                     <td>{new Date(offer.publishDate).toLocaleDateString()}</td>
-                    <td> <button type="button" className="details-offer-button"> Pokaż szczegóły oferty</button> </td>
+                    <td> <button type="button" onClick={() => foo(offer.id)} className="details-offer-button"> Pokaż szczegóły oferty</button> </td>
 
                 </tr>)}
             </tbody>

@@ -4,6 +4,7 @@ import {
 
 const initialState = {
   offers: null,
+    offer:null,
 };
 
 function offersReducer(state = initialState, action) {
@@ -20,7 +21,7 @@ function offersReducer(state = initialState, action) {
 
       case FETCH_SINGLE_OFFER_DETAILS:
           return Object.assign({}, state, {
-              offers: action.offers
+              offer: action.offer
           });
 
     default:

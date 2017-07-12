@@ -2,7 +2,7 @@ import React, {PropTypes} from "react";
 import Modal from 'react-modal';
 
 
-const OfferDetailsComponent = ({visible, popoutModalWindow}) => {
+const OfferDetailsComponent = ({offer,visible, popoutModalWindow}) => {
     return (
         <div>
             <Modal id="showDetails" visible ={visible} contentLabel = "Modal">
@@ -17,6 +17,7 @@ const OfferDetailsComponent = ({visible, popoutModalWindow}) => {
 OfferDetailsComponent.propTypes = {
     visible:PropTypes.bool,
     popoutModalWindow: PropTypes.func,
+    offer: PropTypes.func,
 }
 
 

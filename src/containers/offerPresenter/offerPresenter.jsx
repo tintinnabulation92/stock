@@ -3,10 +3,11 @@ import {connect} from "react-redux";
 import {createStructuredSelector} from "reselect";
 import OfferPresenterComponent from "../../components/offerPresenterComponent/offerPresenterComponent";
 import {fetchOffers} from "./offersActions";
-import {makeSelectOffer} from "./offersSelectors";
+
 import cls from "./offerPresenter.css";
 import OfferDetailsComponent from "../../components/offerDetailsComponent/offerDetailsComponent";
-
+import {makeSelectOffer} from "./offersSelectors";
+import {makeSelectDetailsOffer} from "./offersSelectors";
 
 import {showOffer} from "./offersActions";
 
@@ -22,8 +23,6 @@ import {fetchSingleOfferDetails} from "./offersActions";
 
     }
 
-
-
     render() {
         return (
             <div className={cls.test}>
@@ -35,7 +34,7 @@ import {fetchSingleOfferDetails} from "./offersActions";
 }*/
 //function-based component
 
-const  OffersPresenter = ({fetchOffers, offers,showOffer,visible, popoutModalWindow,fetchSingleOfferDetails}) => {
+const  OffersPresenter = ({fetchOffers, offers,showOffer,visible, popoutModalWindow,fetchSingleOfferDetails,offer}) => {
     return (
         <div className="cls.test">
         <h2> Witaj w  Agro Stock </h2>
@@ -44,7 +43,7 @@ const  OffersPresenter = ({fetchOffers, offers,showOffer,visible, popoutModalWin
             <button className="expand-offers-button" onClick={showOffer}>TEST BUTTON</button>
             <button className="expand-offers-button" onClick={fetchSingleOfferDetails}>Pobierz pojedyncza oferte - test</button>
             <OfferDetailsComponent/>
-            /*visible i popout?*/
+
 
         </div>
     );
@@ -57,12 +56,13 @@ OffersPresenter.propTypes = {
     showOffer: PropTypes.func.isRequired,
     visible:PropTypes.bool,
     fetchSingleOfferDetails:PropTypes.func,
+    offer: PropTypes.func,
 
-    //popoutModalWindow: PropTypes.func.isRequired ?
 };
 
 const mapStateToProps = createStructuredSelector({
     offers: makeSelectOffer(),
+    offer: makeSelectDetailsOffer(),
 });
 
 const mapDispatchToProps = {

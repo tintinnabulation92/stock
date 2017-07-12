@@ -13,13 +13,22 @@ export const offersReceived = (offers) => ({
     offers,
 });
 
-export const showOffer = (Id) => ({
+export const showOffer = (offerID) => ({
     type: SHOW_OFFER,
+    offerID,
 
 });
 
 export const fetchSingleOfferDetails = () => ({
     type: FETCH_SINGLE_OFFER_DETAILS,
 
+});
+
+//offer received
+//offer - nowy -> w reducerze //do dokonczenia
+
+export const offerReceived = (offer) => ({
+    type: OFFERS_RECEIVED,
+    offer,
 });
 

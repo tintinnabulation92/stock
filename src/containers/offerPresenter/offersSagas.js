@@ -32,7 +32,7 @@ export function* fetchOffersSaga(action) {
 
 export function* getDetailedOfferSaga(action) {
     const endpoint = 'offer/2';
-    /* const endpoint = `/offer/{offerId}${action}`;*/
+    /* const endpoint = `/offer/${action.offerID}`;*/
     const contextPath = getContext();
     const url = `${contextPath}/api/${endpoint}`
     console.log(url)
@@ -45,7 +45,7 @@ export function* getDetailedOfferSaga(action) {
     try {
         const res = yield call(request, url, options);
         console.log(res);
-        yield put(offersReceived(res.json));
+        yield put(offersReceived(res.json)); //zle wykonane - musi byc offerReceived (pojedyncza oferta)
     } catch (err) {
         yield put(offersReceived('ERROR WHILE FETCHING OFFERS'));
     }
