@@ -4,7 +4,6 @@ import {createStructuredSelector} from "reselect";
 import OfferPresenterComponent from "../../components/offerPresenterComponent/offerPresenterComponent";
 import {fetchOffers} from "./offersActions";
 import {makeSelectOffer} from "./offersSelectors";
-import cls from "./offerPresenter.css";
 
 class OffersPresenter extends React.PureComponent {
 
@@ -14,7 +13,7 @@ class OffersPresenter extends React.PureComponent {
 
     render() {
         return (
-            <div className={cls.test}>
+            <div>
                 <h2>Witaj na naszej giełdzie!</h2>
                 <OfferPresenterComponent offers={this.props.offers}/>
             </div>

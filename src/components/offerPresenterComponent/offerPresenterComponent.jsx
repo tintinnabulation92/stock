@@ -1,7 +1,7 @@
 import React, {PropTypes} from "react";
 
-const OfferTable = ({offers}) => {
-    return (
+const OfferTable = ({offers}) =>  (
+
         <table>
             <thead>
             <tr>
@@ -29,7 +29,6 @@ const OfferTable = ({offers}) => {
             </tbody>
         </table>
     );
-};
 
 OfferTable.propTypes = {
     offers: PropTypes.array,

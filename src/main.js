@@ -5,7 +5,7 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware  } from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import cls from "./global.css";
+import "./global.css";
 
 import reducers from './reducers'
 import sagas from './sagas'
