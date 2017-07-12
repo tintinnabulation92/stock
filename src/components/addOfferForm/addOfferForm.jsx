@@ -3,7 +3,7 @@ import {Field, reduxForm} from 'redux-form'
 import cls from './addOfferForm.css'
 
 const OfferForm = ({handleSubmit}) =>
-    <form onSubmit={handleSubmit} className="formAttribute">
+    <form onSubmit={handleSubmit} className={cls.formAttribute}>
         <div>
             <label htmlFor="name">Nazwa oferty </label>
             <Field name="name" component="input" type="text" placeholder="Nazwa oferty" required/>
