@@ -14,7 +14,7 @@ const OfferDetailsComponent = ({visible, popoutModalWindow}) => {
     );
 }
 
-OfferDetailsComponent.PropTypes = {
+OfferDetailsComponent.propTypes = {
     visible:PropTypes.bool,
     popoutModalWindow: PropTypes.func,
 }

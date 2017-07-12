@@ -5,6 +5,7 @@ const OfferTable = ({offers}) =>
         <table>
             <thead>
             <tr>
+                <th>ID</th>
                 <th>Nazwa</th>
                 <th>Typ oferty</th>
                 <th>Kategoria</th>
@@ -21,6 +22,7 @@ const OfferTable = ({offers}) =>
             {offers && offers.map((offer) =>
 
                 <tr key={offer.id}>
+                    <td>{offer.id} </td>
                     <td>{offer.name.toLowerCase()}</td>
                     <td>{offer.offerType.toLowerCase()}</td>
                     <td>{offer.category.toLowerCase()}</td>
