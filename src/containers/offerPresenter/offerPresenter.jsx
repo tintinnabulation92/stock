@@ -5,9 +5,7 @@ import OfferPresenterComponent from "../../components/offerPresenterComponent/of
 import {fetchOffers, showModal, addOffer} from './offersActions';
 import {makeSelectOffer, makeSelectShowModal} from './offersSelectors';
 import AddOfferComponent from '../../components/addOfferComponent/addOfferComponent'
-import { fetchOffers } from './offersActions';
-import { makeSelectOffer } from './offersSelectors';
-import cls from './offerPresenter.css';
+
 
 class OffersPresenter extends React.PureComponent {
 
@@ -20,7 +18,8 @@ class OffersPresenter extends React.PureComponent {
             <div>
                 <h2>Witaj na naszej giełdzie!</h2>
                 <OfferPresenterComponent offers={this.props.offers}/>
-                <AddOfferComponent isOpen={modalVisible} addOffer={addOffer} showModal={showModal}/>
+                <button onClick={this.props.showModal}>Dodaj ofertę!</button>
+                <AddOfferComponent isOpen={this.props.modalVisible} addOffer={this.props.addOffer} showModal={this.props.showModal}/>
             </div>
         );
     }

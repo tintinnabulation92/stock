@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react'
 import {Field, reduxForm} from 'redux-form'
 import cls from './addOfferForm.css'
 
-const OfferForm = ({handleSubmit}) =>
+const OfferForm = ({handleSubmit, showModal}) =>
     <form onSubmit={handleSubmit} className={cls.formAttribute}>
         <div>
             <label htmlFor="name">Nazwa oferty </label>
@@ -18,9 +18,9 @@ const OfferForm = ({handleSubmit}) =>
             </Field>
         </div>
         <div>
-            <label htmlFor="category">Kategoria </label>
-            <label><Field name="category" component="input" type="radio" value="VEGETABLES"/> Vegetables</label>
-            <label><Field name="category" component="input" type="radio" value="FRUITS"/> Fruits</label>
+            <label htmlFor="productGroup">Kategoria </label>
+            <label><Field name="productGroup" component="input" type="radio" value="VEGETABLES"/> Vegetables</label>
+            <label><Field name="productGroup" component="input" type="radio" value="FRUITS"/> Fruits</label>
         </div>
         <div>
             <label htmlFor="quality">Klasa jakości </label>
@@ -36,8 +36,8 @@ const OfferForm = ({handleSubmit}) =>
             <Field name="price" component="input" type="number" placeholder="Cena za jednostkę" required/>
         </div>
         <div>
-            <label htmlFor="unit">Jednostka </label>
-            <Field name="unit" component="select" required>
+            <label htmlFor="massUnit">Jednostka </label>
+            <Field name="massUnit" component="select" required>
                 <option></option>
                 <option value="KG">kg</option>
                 <option value="T">t</option>
@@ -53,12 +53,13 @@ const OfferForm = ({handleSubmit}) =>
         </div>
         <br/>
 
-        <button type="submit">Zapisz</button>
+        <button type="submit" onClick={showModal}>Zapisz</button>
     </form>
 
 
 OfferForm.propTypes = {
     handleSubmit: PropTypes.func,
+    showModal: PropTypes.func,
 
 }
 
