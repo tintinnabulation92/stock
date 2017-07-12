@@ -1,13 +1,10 @@
 import 'babel-polyfill';
-import cls from "./global.css";
-
 import React from 'react'
-import { render } from 'react-dom'
-import { Provider } from 'react-redux'
-import { createStore, applyMiddleware  } from 'redux'
+import {render} from 'react-dom'
+import {Provider} from 'react-redux'
+import {createStore, applyMiddleware} from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import "./global.css";
-
 import reducers from './reducers'
 import sagas from './sagas'
 
@@ -16,15 +13,15 @@ import OffersPresenter from "./containers/offerPresenter/offerPresenter"
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
-  reducers,
-  applyMiddleware(sagaMiddleware)
+    reducers,
+    applyMiddleware(sagaMiddleware)
 )
 
 sagas.forEach(sagaMiddleware.run);
 
 render(
-  <Provider store={store}>
-    <OffersPresenter />
-  </Provider>,
-  document.getElementById('app')
+    <Provider store={store}>
+        <OffersPresenter />
+    </Provider>,
+    document.getElementById('app')
 )
