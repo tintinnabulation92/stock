@@ -5,6 +5,8 @@ export const ADD_OFFER= 'app/offerPresenter/ADD_OFFER';
 export const ADD_OFFER_SUCCESS= 'app/offerPresenter/ADD_OFFER_SUCCESS';
 export const FETCH_OFFERS_ERROR= 'app/offerPresenter/FETCH_OFFERS_ERROR';
 export const ADD_OFFER_ERROR= 'app/offerPresenter/ADD_OFFER_ERROR';
+export const SEARCH_OFFERS= 'app/offerPresenter/SEARCH_OFFERS';
+export const SEARCH_OFFERS_ERROR= 'app/offerPresenter/SEARCH_OFFERS_ERROR';
 
 
 export const fetchOffers = () => ({
@@ -19,7 +21,6 @@ export const offersReceived = (offers) => ({
 export const fetchOffersError= () => ({
     type: FETCH_OFFERS_ERROR,
 });
-
 
 export const showModal = () => ({
     type: SHOW_MODAL,
@@ -36,4 +37,13 @@ export const addOfferSuccess = () => ({
 
 export const addOfferError = () => ({
     type: ADD_OFFER_ERROR,
+});
+
+export const searchOffers = (searchForm) => ({
+    type: SEARCH_OFFERS,
+    searchForm,
+});
+
+export const searchOffersError = () => ({
+    type: SEARCH_OFFERS_ERROR,
 });
