@@ -16,9 +16,17 @@ const makeSelectDetailsOffer = () => createSelector(
     }
 );
 
+const makeSelectDetailsVisible = () => createSelector(
+    selectExampleDomain(),
+    (substate) => {
+        return substate.detailsModalVisible;
+    }
+);
+
 export {
   makeSelectOffer,
-    makeSelectDetailsOffer
+    makeSelectDetailsOffer,
+    makeSelectDetailsVisible
 
 };
 

@@ -1,7 +1,7 @@
 import React, {PropTypes} from "react";
 import Modal from 'react-modal';
 
-const OfferTable = ({offers,showOffer,detailsVisible}) =>
+const OfferTable = ({offers,showOffer,detailsVisible,showDetailsModal}) =>
     (
         <table>
             <thead>
@@ -31,7 +31,7 @@ const OfferTable = ({offers,showOffer,detailsVisible}) =>
                     <td>{offer.price}</td>
                     <td>{offer.unit.toLowerCase()}</td>
                     <td>{new Date(offer.publishDate).toLocaleDateString()}</td>
-                    <td> <button type="button" onClick={() => showOffer(offer.id)} className="details-offer-button"> Pokaż szczegóły oferty</button> </td>
+                    <td> <button type="button" onClick={() => showOffer(offer.id)} isOpen = {detailsVisible} showDetails = {showDetailsModal} className="details-offer-button"> Pokaż szczegóły oferty</button> </td>
                                                                                     {/* isOpen={detailsVisible}*/}
                 </tr>)}
             </tbody>
@@ -41,7 +41,8 @@ const OfferTable = ({offers,showOffer,detailsVisible}) =>
 OfferTable.propTypes = {
     offers: PropTypes.array,
     showOffer: PropTypes.func,
-    //detailsVisible: PropTypes.bool,
+    detailsVisible: PropTypes.bool,
+    showDetailsModal: PropTypes.func,
 }
 
 export default OfferTable
