@@ -41,9 +41,9 @@ const  OffersPresenter = ({fetchOffers, offers,showOffer,visible, popoutModalWin
             <OfferPresenterComponent offers={offers}/>
             <button className="expand-offers-button" onClick={fetchOffers}>Pokaż wszystkie oferty</button>
             <button className="expand-offers-button" onClick={showOffer}>TEST BUTTON</button>
-            <button className="expand-offers-button" onClick={fetchSingleOfferDetails}>Pobierz pojedyncza oferte - test</button>
+           { /*<button className="expand-offers-button" onClick={fetchSingleOfferDetails}>Pobierz pojedyncza oferte - test</button>*/}
             <OfferDetailsComponent/>
-
+            
 
         </div>
     );
