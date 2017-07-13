@@ -2,7 +2,8 @@ import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {createStructuredSelector} from "reselect";
 import OfferPresenterComponent from "../../components/offerPresenterComponent/offerPresenterComponent";
-import {fetchOffers, showModal, addOffer} from './offersActions';
+import SearchOffersComponent from "../../components/searchOffersComponent/searchOffersComponent";
+import {fetchOffers, showModal, addOffer,searchOffers} from './offersActions';
 import {makeSelectOffer, makeSelectShowModal} from './offersSelectors';
 import AddOfferComponent from '../../components/addOfferComponent/addOfferComponent'
 
@@ -17,6 +18,7 @@ class OffersPresenter extends React.PureComponent {
         return (
             <div>
                 <h2>Witaj na naszej giełdzie!</h2>
+                <SearchOffersComponent onSubmit={this.props.searchOffers}/>
                 <OfferPresenterComponent offers={this.props.offers}/>
                 <button onClick={this.props.showModal}>Dodaj ofertę!</button>
                 <AddOfferComponent isOpen={this.props.modalVisible} addOffer={this.props.addOffer} showModal={this.props.showModal}/>
@@ -30,6 +32,7 @@ OffersPresenter.propTypes = {
     offers: PropTypes.array,
     showModal: PropTypes.func,
     modalVisible: PropTypes.bool,
+    searchOffers: PropTypes.func
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -40,7 +43,8 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = {
     fetchOffers,
     showModal,
-    addOffer
+    addOffer,
+    searchOffers,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(OffersPresenter);
