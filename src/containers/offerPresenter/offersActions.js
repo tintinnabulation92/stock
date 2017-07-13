@@ -6,7 +6,6 @@ export const OFFER_RECEIVED= 'app/offerPresenter/OFFER_RECEIVED';
 
 
 
-
 export const fetchOffers = () => ({
     type: FETCH_OFFERS,
 });
