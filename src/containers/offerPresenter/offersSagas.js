@@ -55,9 +55,9 @@ export function* getDetailedOfferSaga(action) {
 export function* rootSaga() {
     const watchSendFiles = yield takeLatest(FETCH_OFFERS, fetchOffersSaga);
 
-    const watchClickedButton = yield takeLatest(SHOW_OFFER,fetchOffersSaga);
+   // const watchClickedButton = yield takeLatest(SHOW_OFFER,fetchOffersSaga);
 
-    const watchDetailedOffer = yield  takeLatest(FETCH_SINGLE_OFFER_DETAILS, getDetailedOfferSaga);
+   // const watchDetailedOffer = yield  takeLatest(FETCH_SINGLE_OFFER_DETAILS, getDetailedOfferSaga);
 }
 
 export default rootSaga;

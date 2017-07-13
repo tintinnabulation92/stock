@@ -40,7 +40,7 @@ const  OffersPresenter = ({fetchOffers, offers,showOffer,visible, popoutModalWin
         <h2> Witaj w  Agro Stock </h2>
             <OfferPresenterComponent offers={offers}/>
             <button className="expand-offers-button" onClick={fetchOffers}>Pokaż wszystkie oferty</button>
-            <button className="expand-offers-button" onClick={showOffer}>TEST BUTTON</button>
+           {/* <button className="expand-offers-button" onClick={showOffer}>TEST BUTTON</button> */}
            { /*<button className="expand-offers-button" onClick={fetchSingleOfferDetails}>Pobierz pojedyncza oferte - test</button>*/}
             <OfferDetailsComponent/>
             
@@ -53,10 +53,11 @@ const  OffersPresenter = ({fetchOffers, offers,showOffer,visible, popoutModalWin
 OffersPresenter.propTypes = {
     fetchOffers: PropTypes.func.isRequired,
     offers: PropTypes.array,
-    showOffer: PropTypes.func.isRequired,
+    
+    //showOffer: PropTypes.func.isRequired,
     visible:PropTypes.bool,
-    fetchSingleOfferDetails:PropTypes.func,
-    offer: PropTypes.func,
+   // fetchSingleOfferDetails:PropTypes.func,
+   // offer: PropTypes.func,
 
 };
 
@@ -66,7 +67,8 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = {
-    fetchOffers,showOffer,fetchSingleOfferDetails
+    fetchOffers,
+    //showOffer
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(OffersPresenter);

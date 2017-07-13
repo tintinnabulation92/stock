@@ -13,6 +13,18 @@ export const offersReceived = (offers) => ({
     offers,
 });
 
+/* get a single offer*/
+export const offerReceived = (offer) => ({
+    type: OFFER_RECEIVED,
+    offer,
+});
+
+export const fetchOffer = () => ({
+    type: FETCH_OFFER,
+});
+
+
+/*
 export const showOffer = (offerID) => ({
     type: SHOW_OFFER,
     offerID,
@@ -32,3 +44,4 @@ export const offerReceived = (offer) => ({
     offer,
 });
 
+*/
