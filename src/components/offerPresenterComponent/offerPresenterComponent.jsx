@@ -1,6 +1,6 @@
 import React, {PropTypes} from "react";
 
-const OfferTable = ({offers}) =>
+const OfferTable = ({offers,offer}) =>
     (
         <table>
             <thead>
@@ -30,7 +30,7 @@ const OfferTable = ({offers}) =>
                     <td>{offer.price}</td>
                     <td>{offer.unit.toLowerCase()}</td>
                     <td>{new Date(offer.publishDate).toLocaleDateString()}</td>
-                    <td> <button type="button" onClick={() => foo(offer.id)} className="details-offer-button"> Pokaż szczegóły oferty</button> </td>
+                    <td> <button type="button" onClick={() => offer(offer.id)} className="details-offer-button"> Pokaż szczegóły oferty</button> </td>
 
                 </tr>)}
             </tbody>
@@ -39,6 +39,7 @@ const OfferTable = ({offers}) =>
 
 OfferTable.propTypes = {
     offers: PropTypes.array,
+    offer: PropTypes.object,
 }
 
 export default OfferTable
