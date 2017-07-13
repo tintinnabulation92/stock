@@ -4,6 +4,10 @@ export const FETCH_OFFERS= 'app/offerPresenter/FETCH_OFFERS';
 export const SHOW_OFFER= 'app/offerPresenter/SHOW_OFFER'; //added
 export const FETCH_SINGLE_OFFER_DETAILS = 'app/offerPresenter/FETCH_SINGLE_OFFER_DETAILS'; //added
 
+//single offer - saga
+
+
+
 export const fetchOffers = () => ({
     type: FETCH_OFFERS,
 });
@@ -23,6 +27,7 @@ export const fetchOffer = () => ({
     type: FETCH_OFFER,
 });
 
+SOME SHIT 
 
 /*
 export const showOffer = (offerID) => ({
