@@ -9,9 +9,13 @@ import OfferDetailsComponent from "../../components/offerDetailsComponent/offerD
 import {makeSelectOffer} from "./offersSelectors";
 import {makeSelectDetailsOffer} from "./offersSelectors";
 
-import {showOffer} from "./offersActions";
 
-import {fetchSingleOfferDetails} from "./offersActions";
+import {fetchOffer} from "./offersActions";
+
+
+
+//import {showOffer} from "./offersActions";
+//import {fetchSingleOfferDetails} from "./offersActions";
 
 
 //import OfferDetailsComponent from "../../components/offerPresenterComponent/offerDetailsComponent";
@@ -34,7 +38,7 @@ import {fetchSingleOfferDetails} from "./offersActions";
 }*/
 //function-based component
 
-const  OffersPresenter = ({fetchOffers, offers,showOffer,visible, popoutModalWindow,fetchSingleOfferDetails,offer}) => {
+const  OffersPresenter = ({fetchOffers, offers,fetchOffer,offer,visible, popoutModalWindow}) => {
     return (
         <div className="cls.test">
         <h2> Witaj w  Agro Stock </h2>
@@ -53,9 +57,11 @@ const  OffersPresenter = ({fetchOffers, offers,showOffer,visible, popoutModalWin
 OffersPresenter.propTypes = {
     fetchOffers: PropTypes.func.isRequired,
     offers: PropTypes.array,
+    fetchOffer:PropTypes.func,
+    offer:PropTypes.object,
     
     //showOffer: PropTypes.func.isRequired,
-    visible:PropTypes.bool,
+   // visible:PropTypes.bool,
    // fetchSingleOfferDetails:PropTypes.func,
    // offer: PropTypes.func,
 
@@ -68,6 +74,7 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = {
     fetchOffers,
+    fetchOffer,
     //showOffer
 };
 
