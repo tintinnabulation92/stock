@@ -5,7 +5,7 @@ ADD . /usr/src/app
 
 # Install dependencies
 WORKDIR /usr/src/app
-RUN npm install
+RUN npm install --production
 
 # Build the app
 RUN npm run build
