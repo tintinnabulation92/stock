@@ -6,8 +6,9 @@ import request from '../../utils/request'
 import {
     SHOW_OFFER,
     FETCH_OFFERS,
-    FETCH_SINGLE_OFFER_DETAILS,
+    FETCH_OFFER,
     offersReceived,
+    offerReceived,
 } from './offersActions';
 
 export function* fetchOffersSaga(action) {
@@ -31,7 +32,7 @@ export function* fetchOffersSaga(action) {
 }
 
 export function* getDetailedOfferSaga(action) {
-    const endpoint = 'offer/2';
+    const endpoint = `/offer/${action.id}`;
     /* const endpoint = `/offer/${action.offerID}`;*/
     const contextPath = getContext();
     const url = `${contextPath}/api/${endpoint}`
@@ -45,9 +46,9 @@ export function* getDetailedOfferSaga(action) {
     try {
         const res = yield call(request, url, options);
         console.log(res);
-        yield put(offersReceived(res.json)); //zle wykonane - musi byc offerReceived (pojedyncza oferta)
+        yield put(offerReceived(res.json)); 
     } catch (err) {
-        yield put(offersReceived('ERROR WHILE FETCHING OFFERS'));
+        yield put(offerReceived('ERROR WHILE FETCHING OFFERS'));
     }
 }
 
@@ -55,6 +56,7 @@ export function* getDetailedOfferSaga(action) {
 export function* rootSaga() {
     const watchSendFiles = yield takeLatest(FETCH_OFFERS, fetchOffersSaga);
 
+    const watchFetchOffer = yield takeLatest(FETCH_OFFER, getDetailedOfferSaga);
    // const watchClickedButton = yield takeLatest(SHOW_OFFER,fetchOffersSaga);
 
    // const watchDetailedOffer = yield  takeLatest(FETCH_SINGLE_OFFER_DETAILS, getDetailedOfferSaga);

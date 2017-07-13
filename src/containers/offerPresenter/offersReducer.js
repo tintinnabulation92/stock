@@ -1,5 +1,5 @@
 import {
-  OFFERS_RECEIVED, SHOW_OFFER, FETCH_SINGLE_OFFER_DETAILS
+  OFFERS_RECEIVED, OFFER_RECEIVED
 } from './offersActions';
 
 const initialState = {
@@ -14,7 +14,21 @@ function offersReducer(state = initialState, action) {
         offers: action.offers
       });
 
-      case SHOW_OFFER:
+     case OFFER_RECEIVED:
+      return Object.assign({}, state, {
+        offer: action.offer
+      });
+
+    default:
+      return state;
+  }
+}
+
+export default offersReducer;
+
+/*
+
+ case SHOW_OFFER:
           return Object.assign({}, state, {
               offers: action.offers
           });
@@ -24,9 +38,4 @@ function offersReducer(state = initialState, action) {
               offer: action.offer
           });
 
-    default:
-      return state;
-  }
-}
-
-export default offersReducer;
+*/

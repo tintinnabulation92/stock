@@ -42,7 +42,7 @@ const  OffersPresenter = ({fetchOffers, offers,fetchOffer,offer,visible, popoutM
     return (
         <div className="cls.test">
         <h2> Witaj w  Agro Stock </h2>
-            <OfferPresenterComponent offers={offers}/>
+            <OfferPresenterComponent offers={offers} showOffer={fetchOffer}/>
             <button className="expand-offers-button" onClick={fetchOffers}>Pokaż wszystkie oferty</button>
            {/* <button className="expand-offers-button" onClick={showOffer}>TEST BUTTON</button> */}
            { /*<button className="expand-offers-button" onClick={fetchSingleOfferDetails}>Pobierz pojedyncza oferte - test</button>*/}
