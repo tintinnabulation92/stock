@@ -14,3 +14,5 @@ EXPOSE 8080
 
 # Start the app
 CMD ["npm", "run", "start"]
+
+ENV BACKEND_API=https://stock.jitsolutions.pl/stock-bd
