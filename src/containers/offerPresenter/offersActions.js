@@ -1,10 +1,9 @@
 export const OFFERS_RECEIVED= 'app/offerPresenter/OFFERS_RECEIVED';
 export const FETCH_OFFERS= 'app/offerPresenter/FETCH_OFFERS';
-
 export const FETCH_OFFER= 'app/offerPresenter/FETCH_OFFER';
 export const OFFER_RECEIVED= 'app/offerPresenter/OFFER_RECEIVED';
 
-//single offer - saga
+
 
 
 

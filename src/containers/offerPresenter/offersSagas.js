@@ -4,7 +4,7 @@ import {getContext} from '../../utils/context';
 import request from '../../utils/request'
 
 import {
-    SHOW_OFFER,
+    //SHOW_OFFER,
     FETCH_OFFERS,
     FETCH_OFFER,
     offersReceived,
@@ -31,7 +31,7 @@ export function* fetchOffersSaga(action) {
     }
 }
 
-export function* getDetailedOfferSaga(action) {
+export function* fetchDetailedOfferSaga(action) {
     const endpoint = `/offer/${action.id}`;
     /* const endpoint = `/offer/${action.offerID}`;*/
     const contextPath = getContext();
@@ -56,7 +56,7 @@ export function* getDetailedOfferSaga(action) {
 export function* rootSaga() {
     const watchSendFiles = yield takeLatest(FETCH_OFFERS, fetchOffersSaga);
 
-    const watchFetchOffer = yield takeLatest(FETCH_OFFER, getDetailedOfferSaga);
+    const watchFetchOffer = yield takeLatest(FETCH_OFFER, fetchDetailedOfferSaga);
    // const watchClickedButton = yield takeLatest(SHOW_OFFER,fetchOffersSaga);
 
    // const watchDetailedOffer = yield  takeLatest(FETCH_SINGLE_OFFER_DETAILS, getDetailedOfferSaga);

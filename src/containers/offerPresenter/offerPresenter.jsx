@@ -3,13 +3,10 @@ import {connect} from "react-redux";
 import {createStructuredSelector} from "reselect";
 import OfferPresenterComponent from "../../components/offerPresenterComponent/offerPresenterComponent";
 import {fetchOffers} from "./offersActions";
-
 import cls from "./offerPresenter.css";
 import OfferDetailsComponent from "../../components/offerDetailsComponent/offerDetailsComponent";
 import {makeSelectOffer} from "./offersSelectors";
 import {makeSelectDetailsOffer} from "./offersSelectors";
-
-
 import {fetchOffer} from "./offersActions";
 
 
