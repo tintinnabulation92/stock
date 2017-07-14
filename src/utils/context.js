@@ -1,2 +1,2 @@
-export const getContext = () => { return process.env.BACKEND_API }
+export const getContext = () => { return '/api' }
 

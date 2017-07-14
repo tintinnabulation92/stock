@@ -18,7 +18,7 @@ import {
 export function* fetchOffersSaga(action) {
     const endpoint = 'offers';
     const contextPath = getContext();
-    const url = `${contextPath}/api/${endpoint}`
+    const url = `${contextPath}/${endpoint}`
     const options = {
         method: 'GET',
         mode: 'cors',
@@ -36,7 +36,7 @@ export function* addOfferSaga(action) {
 
     const endpoint = 'offer/create';
     const contextPath = getContext();
-    const url = `${contextPath}/api/${endpoint}`
+    const url = `${contextPath}/${endpoint}`
     const options = {
         method: 'POST',
         mode: 'cors',
@@ -69,7 +69,7 @@ export function* searchOffersSaga(action) {
         paramsArray.push(offerType);
     }
     const params = `?${paramsArray.join('&')}`;
-    const url = `${contextPath}/api/${endpoint}${params}`
+    const url = `${contextPath}/${endpoint}${params}`
     const options = {
         method: 'GET',
         mode: 'cors',
@@ -79,7 +79,11 @@ export function* searchOffersSaga(action) {
         const res = yield call(request, url, options);
         yield put(offersReceived(res.json));
     } catch (err) {
-        yield put(searchOffersError('ERROR WHILE SEARCHING OFFERS'));
+        if(err.status === 404){
+            yield put(offersReceived([]));
+        }else{
+            yield put(searchOffersError('ERROR WHILE SEARCHING OFFERS'));
+        }
     }
 }
 
