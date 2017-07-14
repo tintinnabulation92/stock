@@ -16,9 +16,19 @@ const makeSelectDetailsOffer = () => createSelector(
     }
 );
 
-export {
-  makeSelectOffer,
-    makeSelectDetailsOffer
+const makeSelectShowModal = () => createSelector(
+  selectExampleDomain(),
+  (substate) => {
+    return substate.showModal;
+  }
+);
 
+
+export {
+
+  makeSelectOffer,
+  makeSelectDetailsOffer,
+  makeSelectShowModal,
+   
 };
 

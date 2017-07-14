@@ -3,8 +3,7 @@ import {getContext} from '../../utils/context';
 
 import request from '../../utils/request'
 
-import {
-    //SHOW_OFFER,
+import {      
     FETCH_OFFERS,
     FETCH_OFFER,
     offersReceived,

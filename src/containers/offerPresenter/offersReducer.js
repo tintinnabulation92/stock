@@ -1,10 +1,14 @@
 import {
-  OFFERS_RECEIVED, OFFER_RECEIVED
+  OFFERS_RECEIVED, 
+  OFFER_RECEIVED,
+  SHOW_MODAL
 } from './offersActions';
 
 const initialState = {
-  offers: null,
+    offers: null,
     offer:null,
+    showModalDetails: false,
+  
 };
 
 function offersReducer(state = initialState, action) {
@@ -16,7 +20,13 @@ function offersReducer(state = initialState, action) {
 
      case OFFER_RECEIVED:
       return Object.assign({}, state, {
-        offer: action.offer
+        offer: action.offer,
+        showModal : !state.showModalDetails,
+      });
+
+      case SHOW_MODAL:
+      return Object.assign({}, state, {
+        showModal: !state.showModalDetals,
       });
 
     default:
@@ -25,17 +35,3 @@ function offersReducer(state = initialState, action) {
 }
 
 export default offersReducer;
-
-/*
-
- case SHOW_OFFER:
-          return Object.assign({}, state, {
-              offers: action.offers
-          });
-
-      case FETCH_SINGLE_OFFER_DETAILS:
-          return Object.assign({}, state, {
-              offer: action.offer
-          });
-
-*/

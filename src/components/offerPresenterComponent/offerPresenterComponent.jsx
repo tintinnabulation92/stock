@@ -2,7 +2,7 @@ import React, {PropTypes} from "react";
 import Modal from 'react-modal';
 
 
-const OfferTable = ({offers,showOffer,detailsVisible}) =>
+const OfferTable = ({offers,showOffer,isOpen,showModalDetails}) =>
     (
         <table>
             <thead>
@@ -33,19 +33,23 @@ const OfferTable = ({offers,showOffer,detailsVisible}) =>
                     <td>{offer.unit.toLowerCase()}</td>
                     <td>{new Date(offer.publishDate).toLocaleDateString()}</td>
                     <td> <button type="button" onClick={() => showOffer(offer.id)} className="details-offer-button"> Pokaż szczegóły oferty</button> </td>
-                    <Modal>
-                    <td> <button type="button"> Open modal dialog </button></td>
-                    </Modal>
-                                                                                    {/* isOpen={detailsVisible}*/}
+                    
+                                                                                  
                 </tr>)}
             </tbody>
+            <Modal isOpen = {isOpen} contentLabel = "Modal">
+                <button type="button" onClick = {showModalDetails}> Close modal dialog </button>
+            </Modal>
         </table>
-    );
+            
+       );
 
 OfferTable.propTypes = {
     offers: PropTypes.array,
     showOffer: PropTypes.func,
-    //detailsVisible: PropTypes.bool,
+    isOpen: PropTypes.bool,
+    showModalDetails: PropTypes.func,
+
 }
 
 export default OfferTable

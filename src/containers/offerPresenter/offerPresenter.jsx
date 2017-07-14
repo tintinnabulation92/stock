@@ -8,7 +8,45 @@ import OfferDetailsComponent from "../../components/offerDetailsComponent/offerD
 import {makeSelectOffer} from "./offersSelectors";
 import {makeSelectDetailsOffer} from "./offersSelectors";
 import {fetchOffer} from "./offersActions";
+import {makeSelectShowModal} from "./offersSelectors";
+import {showModalDetails} from "./offersActions";
 
+
+
+const  OffersPresenter = ({fetchOffers, offers,fetchOffer,offer,showModalDetails,modalVisible}) => {
+    return (
+        <div className="cls.test">
+        <h2> Witaj w  Agro Stock </h2>                                        
+            <OfferPresenterComponent offers={offers} showOffer={fetchOffer} isOpen = {modalVisible} showModalDetails = {showModalDetails}/>
+            <button className="expand-offers-button" onClick={fetchOffers}>Pokaż wszystkie oferty</button>
+            <OfferDetailsComponent />
+        </div>
+    );
+}
+
+
+OffersPresenter.propTypes = {
+    fetchOffers: PropTypes.func.isRequired,
+    offers: PropTypes.array,
+    fetchOffer:PropTypes.func,
+    offer:PropTypes.object,
+    showModal: PropTypes.func,
+    modalVisible: PropTypes.bool,
+   };
+
+const mapStateToProps = createStructuredSelector({
+    offers: makeSelectOffer(),
+    offer: makeSelectDetailsOffer(),
+    modalVisible: makeSelectShowModal(),
+});
+
+const mapDispatchToProps = {
+    fetchOffers,
+    fetchOffer,
+    showModalDetails, 
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(OffersPresenter);
 
 
 //import {showOffer} from "./offersActions";
@@ -34,46 +72,3 @@ import {fetchOffer} from "./offersActions";
     }
 }*/
 //function-based component
-
-const  OffersPresenter = ({fetchOffers, offers,fetchOffer,offer,detailsVisible, popoutModalWindow}) => {
-    return (
-        <div className="cls.test">
-        <h2> Witaj w  Agro Stock </h2>                                        {/*detailsVisible = {detailsVisible} */}
-            <OfferPresenterComponent offers={offers} showOffer={fetchOffer} />
-            <button className="expand-offers-button" onClick={fetchOffers}>Pokaż wszystkie oferty</button>
-           {/* <button className="expand-offers-button" onClick={showOffer}>TEST BUTTON</button> */}
-           { /*<button className="expand-offers-button" onClick={fetchSingleOfferDetails}>Pobierz pojedyncza oferte - test</button>*/}
-            <OfferDetailsComponent/>
-            
-
-        </div>
-    );
-}
-
-
-OffersPresenter.propTypes = {
-    fetchOffers: PropTypes.func.isRequired,
-    offers: PropTypes.array,
-    fetchOffer:PropTypes.func,
-    offer:PropTypes.object,
-   // detailsVisible:PropTypes.bool,
-    
-    //showOffer: PropTypes.func.isRequired,
-   // visible:PropTypes.bool,
-   // fetchSingleOfferDetails:PropTypes.func,
-   // offer: PropTypes.func,
-
-};
-
-const mapStateToProps = createStructuredSelector({
-    offers: makeSelectOffer(),
-    offer: makeSelectDetailsOffer(),
-});
-
-const mapDispatchToProps = {
-    fetchOffers,
-    fetchOffer,
-    //showOffer
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(OffersPresenter);
