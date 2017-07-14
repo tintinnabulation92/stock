@@ -7,6 +7,7 @@ import {
     FETCH_OFFERS,
     ADD_OFFER,
     SEARCH_OFFERS,
+    fetchOffers,
     offersReceived,
     addOfferSuccess,
     fetchOffersError,
@@ -32,6 +33,7 @@ export function* fetchOffersSaga(action) {
 }
 
 export function* addOfferSaga(action) {
+
     const endpoint = 'offer/create';
     const contextPath = getContext();
     const url = `${contextPath}/api/${endpoint}`
@@ -44,6 +46,7 @@ export function* addOfferSaga(action) {
     try {
         const res = yield call(request, url, options);
         yield put(addOfferSuccess());
+        yield put(fetchOffers());
     } catch (err) {
         yield put(addOfferError('ERROR WHILE SENDING OFFER'));
     }
