@@ -53,14 +53,12 @@ const OfferForm = ({handleSubmit, showModal}) =>
         </div>
         <br/>
 
-        <button type="submit" onClick={showModal}>Zapisz</button>
+        <button type="submit">Zapisz</button>
     </form>
 
 
 OfferForm.propTypes = {
     handleSubmit: PropTypes.func,
-    showModal: PropTypes.func,
-
 }
 
 const AddOfferForm = reduxForm({
