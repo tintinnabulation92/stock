@@ -7,7 +7,7 @@ import {
 const initialState = {
     offers: null,
     offer:null,
-    showModalDetails: false,
+    showModal: false,
   
 };
 
@@ -21,12 +21,12 @@ function offersReducer(state = initialState, action) {
      case OFFER_RECEIVED:
       return Object.assign({}, state, {
         offer: action.offer,
-        showModal : !state.showModalDetails,
+        showModal : !state.showModal,
       });
 
       case SHOW_MODAL:
       return Object.assign({}, state, {
-        showModal: !state.showModalDetals,
+        showModal: !state.showModal,
       });
 
     default:

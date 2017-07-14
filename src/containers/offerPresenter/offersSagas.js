@@ -47,7 +47,7 @@ export function* fetchDetailedOfferSaga(action) {
         console.log(res);
         yield put(offerReceived(res.json)); 
     } catch (err) {
-        yield put(offerReceived('ERROR WHILE FETCHING OFFERS'));
+        yield put(offerReceived('ERROR WHILE FETCHING OFFER'));
     }
 }
 

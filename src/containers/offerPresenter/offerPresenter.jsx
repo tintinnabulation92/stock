@@ -30,7 +30,7 @@ OffersPresenter.propTypes = {
     offers: PropTypes.array,
     fetchOffer:PropTypes.func,
     offer:PropTypes.object,
-    showModal: PropTypes.func,
+    showModalDetails: PropTypes.func,
     modalVisible: PropTypes.bool,
    };
 

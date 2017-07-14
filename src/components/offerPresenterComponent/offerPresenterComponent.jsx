@@ -39,6 +39,21 @@ const OfferTable = ({offers,showOffer,isOpen,showModalDetails}) =>
             </tbody>
             <Modal isOpen = {isOpen} contentLabel = "Modal">
                 <button type="button" onClick = {showModalDetails}> Close modal dialog </button>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th> Element 1 </th>
+                              {/*   //showOffer  */}  
+                        </tr>
+                         </thead>
+
+                            <tbody>
+                            {/* fetch single offer, render as a row in the table*/}
+                                <tr>
+                                    <td> offer.name </td>
+                                </tr>
+                            </tbody>
+                    </table>
             </Modal>
         </table>
             
@@ -49,6 +64,7 @@ OfferTable.propTypes = {
     showOffer: PropTypes.func,
     isOpen: PropTypes.bool,
     showModalDetails: PropTypes.func,
+    
 
 }
 
