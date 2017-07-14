@@ -1,6 +1,7 @@
 import React, {PropTypes} from "react";
 import Modal from 'react-modal';
 
+
 const OfferTable = ({offers,showOffer,detailsVisible}) =>
     (
         <table>
@@ -32,6 +33,9 @@ const OfferTable = ({offers,showOffer,detailsVisible}) =>
                     <td>{offer.unit.toLowerCase()}</td>
                     <td>{new Date(offer.publishDate).toLocaleDateString()}</td>
                     <td> <button type="button" onClick={() => showOffer(offer.id)} className="details-offer-button"> Pokaż szczegóły oferty</button> </td>
+                    <Modal>
+                    <td> <button type="button"> Open modal dialog </button></td>
+                    </Modal>
                                                                                     {/* isOpen={detailsVisible}*/}
                 </tr>)}
             </tbody>
