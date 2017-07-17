@@ -1,8 +1,6 @@
 import {take, takeLatest, call, cancel, put, select} from 'redux-saga/effects';
 import {getContext} from '../../utils/context';
-
 import request from '../../utils/request'
-
 import {
     FETCH_OFFERS,
     ADD_OFFER,
@@ -14,7 +12,6 @@ import {
     addOfferError,
     searchOffersError
 } from './offersActions';
-
 export function* fetchOffersSaga(action) {
     const endpoint = 'offers';
     const contextPath = getContext();
@@ -31,9 +28,7 @@ export function* fetchOffersSaga(action) {
         yield put(fetchOffersError('ERROR WHILE FETCHING OFFERS'));
     }
 }
-
 export function* addOfferSaga(action) {
-
     const endpoint = 'offer/create';
     const contextPath = getContext();
     const url = `${contextPath}/${endpoint}`
@@ -51,7 +46,6 @@ export function* addOfferSaga(action) {
         yield put(addOfferError('ERROR WHILE SENDING OFFER'));
     }
 }
-
 export function* searchOffersSaga(action) {
     const endpoint = 'offers/search';
     const contextPath = getContext();
@@ -86,11 +80,9 @@ export function* searchOffersSaga(action) {
         }
     }
 }
-
 export function* rootSaga() {
     const watchSendFiles = yield takeLatest(FETCH_OFFERS, fetchOffersSaga);
     const sendOffer= yield takeLatest(ADD_OFFER,addOfferSaga)
     const filterOffers= yield takeLatest(SEARCH_OFFERS,searchOffersSaga)
 }
-
 export default rootSaga;
