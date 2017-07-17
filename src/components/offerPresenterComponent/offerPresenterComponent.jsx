@@ -18,6 +18,7 @@ const OfferTable = ({offers,isOpen,showModalDetails,offerFetched,showOffer}) => 
                     <th>Jednostka</th>
                     <th>Data</th>
                     <th>Szczegóły Oferty</th>
+                    <th> </th>
 
                 </tr>
                 </thead>

@@ -9,21 +9,6 @@ import {fetchOffers,fetchOffer,showModalDetails} from "./offersActions";
 
 
 
-/*
-                                            
-const  OffersPresenter = ({fetchOffers, offers,fetchOffer,showModalDetails,modalDetailsVisible,offerFetched}) => {
-    return (
-        <div className="cls.test">
-        <h2> Witaj w  Agro Stock </h2>                                        
-            <OfferPresenterComponent offers={offers} showOffer={fetchOffer} isOpen = {modalDetailsVisible} showModalDetails = {showModalDetails} offerFetched = {offerFetched}/>
-            <button className="expand-offers-button" onClick={fetchOffers}>Pokaż wszystkie oferty</button>
-            <OfferDetailsComponent />
-        </div>
-    );
-}
-
-*/
-
 class OffersPresenter extends React.PureComponent {
 
     componentWillMount() {
