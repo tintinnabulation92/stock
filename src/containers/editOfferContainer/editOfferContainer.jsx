@@ -1,8 +1,8 @@
 import React, {PropTypes} from "react";
 
-const EditOfferComponent = ({offer}) =>
+const EditOfferContainer = ({id}) =>
     <div>
       <p>edytowanie...</p>
     </div>
 
-export default EditOfferComponent
+export default EditOfferContainer

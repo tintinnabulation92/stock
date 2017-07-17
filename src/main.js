@@ -7,8 +7,9 @@ import createSagaMiddleware from 'redux-saga'
 import "./global.css";
 import reducers from './reducers'
 import sagas from './sagas'
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { Router, Route, IndexRoute, useRouterHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
+import { createHistory } from 'history'
 
 import OffersPresenter from "./containers/offerPresenter/offerPresenter"
 import App from './containers/app'
@@ -22,6 +23,11 @@ const store = createStore(
 )
 
 sagas.forEach(sagaMiddleware.run);
+
+
+const browserHistory = useRouterHistory(createHistory)({
+ basename: process.env.CONTEXT_PATH ? `/${process.env.CONTEXT_PATH}`.replace(/\/{2,}|\/$/g, '/') : '/',
+});
 
 const history = syncHistoryWithStore(browserHistory, store)
 
