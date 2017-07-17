@@ -12,12 +12,12 @@ import {makeSelectShowModal} from "./offersSelectors";
 import {showModalDetails} from "./offersActions";
 
 
-
-const  OffersPresenter = ({fetchOffers, offers,fetchOffer,offer,showModalDetails,modalVisible}) => {
+                                             
+const  OffersPresenter = ({fetchOffers, offers,fetchOffer,showModalDetails,modalVisible,offerFetched}) => {
     return (
         <div className="cls.test">
         <h2> Witaj w  Agro Stock </h2>                                        
-            <OfferPresenterComponent offers={offers} showOffer={fetchOffer} isOpen = {modalVisible} showModalDetails = {showModalDetails}/>
+            <OfferPresenterComponent offers={offers} showOffer={fetchOffer} isOpen = {modalVisible} showModalDetails = {showModalDetails} offerFetched = {offerFetched}/>
             <button className="expand-offers-button" onClick={fetchOffers}>Pokaż wszystkie oferty</button>
             <OfferDetailsComponent />
         </div>
@@ -29,18 +29,18 @@ OffersPresenter.propTypes = {
     fetchOffers: PropTypes.func.isRequired,
     offers: PropTypes.array,
     fetchOffer:PropTypes.func,
-    offer:PropTypes.object,
+    offerFetched:PropTypes.object,
     showModalDetails: PropTypes.func,
     modalVisible: PropTypes.bool,
    };
 
 const mapStateToProps = createStructuredSelector({
     offers: makeSelectOffer(),
-    offer: makeSelectDetailsOffer(),
+    offerFetched: makeSelectDetailsOffer(), 
     modalVisible: makeSelectShowModal(),
 });
 
-const mapDispatchToProps = {
+const mapDispatchToProps = { //metody
     fetchOffers,
     fetchOffer,
     showModalDetails, 

@@ -16,9 +16,9 @@ export const offersReceived = (offers) => ({
 });
 
 
-export const offerReceived = (offer) => ({
+export const offerReceived = (offerFetched) => ({
     type: OFFER_RECEIVED,
-    offer,
+    offerFetched,  
 });
 
 export const fetchOffer = (id) => ({

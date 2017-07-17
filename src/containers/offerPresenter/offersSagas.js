@@ -7,7 +7,7 @@ import {
     FETCH_OFFERS,
     FETCH_OFFER,
     offersReceived,
-    offerReceived,
+    offerReceived,   // ?? edit 
 } from './offersActions';
 
 export function* fetchOffersSaga(action) {
