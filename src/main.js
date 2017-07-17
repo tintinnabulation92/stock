@@ -24,9 +24,10 @@ const store = createStore(
 
 sagas.forEach(sagaMiddleware.run);
 
+const contextPath = `/${process.env.CONTEXT_PATH || ''}`.replace(/\/{2,}|\/$/g, '/');
 
 const browserHistory = useRouterHistory(createHistory)({
- basename: process.env.CONTEXT_PATH ? `/${process.env.CONTEXT_PATH}`.replace(/\/{2,}|\/$/g, '/') : '/',
+ basename: contextPath,
 });
 
 const history = syncHistoryWithStore(browserHistory, store)
