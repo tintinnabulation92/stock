@@ -14,3 +14,8 @@ EXPOSE 8080
 
 # Start the app
 CMD ["npm", "run", "start"]
+
+ENV DOCKER_BACKEND_API https://stock.jitsolutions.pl/stock-bd/api
+ENV CONTEXT_PATH /stock/
+
+

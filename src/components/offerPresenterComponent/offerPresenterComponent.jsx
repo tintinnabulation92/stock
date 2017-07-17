@@ -1,11 +1,13 @@
 import React, {PropTypes} from "react";
 import Modal from 'react-modal';
+import {Link} from 'react-router';
 
 
 const OfferTable = ({offers,isOpen,showModalDetails,offerFetched,showOffer}) => {
     console.log('received offer', offerFetched && offerFetched.id);
     return (
         <div>
+            <h3>Oto oferty znajdujące się w bazie: </h3>
             <table>
                 <thead>
                 <tr>
@@ -30,14 +32,14 @@ const OfferTable = ({offers,isOpen,showModalDetails,offerFetched,showOffer}) => 
                         <td>{offer.id} </td>
                         <td>{offer.name.toLowerCase()}</td>
                         <td>{offer.offerType.toLowerCase()}</td>
-                        <td>{offer.category.toLowerCase()}</td>
+                        <td>{offer.productGroup.toLowerCase()}</td>
                         <td>{offer.quality}</td>
                         <td>{offer.price}</td>
-                        <td>{offer.unit.toLowerCase()}</td>
+                        <td>{offer.massUnit.toLowerCase()}</td>
                         <td>{new Date(offer.publishDate).toLocaleDateString()}</td>
                         <td> <button type="button" onClick={() => showOffer(offer.id)} className="details-offer-button"> Pokaż szczegóły oferty</button> </td>
-                        
-                                                                                    
+                        <td><Link to="editOffer">edytuj</Link></td>
+
                     </tr>)}
                 </tbody>
             </table>
@@ -62,11 +64,11 @@ const OfferTable = ({offers,isOpen,showModalDetails,offerFetched,showOffer}) => 
                                 <td>{offerFetched.id} </td>
                                 <td>{offerFetched.name.toLowerCase()}</td>
                                 <td>{offerFetched.offerType.toLowerCase()}</td>
-                                <td>{offerFetched.category.toLowerCase()}</td>
+                                <td>{offerFetched.productGroup.toLowerCase()}</td>
                                 <td>{offerFetched.quality}</td>
                                 <td>{offerFetched.price}</td>
-                                <td>{offerFetched.unit.toLowerCase()}</td>
-                                <td>{new Date(offerFetched.publishDate).toLocaleDateString()}</td>                                              
+                                <td>{offerFetched.massUnit.toLowerCase()}</td>
+                                <td>{new Date(offerFetched.publishDate).toLocaleDateString()}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -75,7 +77,7 @@ const OfferTable = ({offers,isOpen,showModalDetails,offerFetched,showOffer}) => 
         </div>
        );
 }
-    
+
 
 OfferTable.propTypes = {
     offers: PropTypes.array,
@@ -84,7 +86,7 @@ OfferTable.propTypes = {
     isOpen: PropTypes.bool,
     showModalDetails: PropTypes.func,
 
-    
+
 
 }
 

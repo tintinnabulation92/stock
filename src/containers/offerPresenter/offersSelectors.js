@@ -12,7 +12,7 @@ const makeSelectOffer = () => createSelector(
 const makeSelectDetailsOffer = () => createSelector(
     selectExampleDomain(),
     (substate) => {
-        return substate.offerFetched;  
+        return substate.offerFetched;
     }
 );
 
@@ -24,11 +24,21 @@ const makeSelectShowModalDetails = () => createSelector(
 );
 
 
+const makeSelectShowModal = () => createSelector(
+    selectExampleDomain(),
+    (substate) => {
+        return substate.showModal;
+    }
+);
+
+
+
+
 export {
 
   makeSelectOffer,
   makeSelectDetailsOffer,
   makeSelectShowModalDetails,
-   
-};
+    makeSelectShowModal,
 
+};

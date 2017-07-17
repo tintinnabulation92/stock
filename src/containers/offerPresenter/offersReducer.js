@@ -1,14 +1,20 @@
 import {
-  OFFERS_RECEIVED, 
-  OFFER_RECEIVED,
-  SHOW_MODAL_DETAILS
+    OFFERS_RECEIVED,
+    OFFER_RECEIVED,
+    SHOW_MODAL_DETAILS,
+    SHOW_MODAL,
+    ADD_OFFER,
+    SEARCH_OFFERS,
+    ADD_OFFER_SUCCESS,
 } from './offersActions';
 
 const initialState = {
     offers: null,
-    offerFetched:null,   
+    offerFetched:null,
     showModalDetails: false,
-  
+    showModal: false,
+    form: null,
+    searchForm: null,
 };
 
 function offersReducer(state = initialState, action) {
@@ -20,7 +26,7 @@ function offersReducer(state = initialState, action) {
 
      case OFFER_RECEIVED:
       return Object.assign({}, state, {
-        offerFetched: action.offerFetched,   
+        offerFetched: action.offerFetched,
         showModalDetails : !state.showModalDetails,
       });
 
@@ -29,9 +35,27 @@ function offersReducer(state = initialState, action) {
         showModalDetails: !state.showModalDetails,
       });
 
-    default:
-      return state;
-  }
+      case SHOW_MODAL:
+          return Object.assign({}, state, {
+              showModal: !state.showModal,
+          });
+      case ADD_OFFER:
+          return Object.assign({}, state, {
+              form: action.form,
+          });
+      case SEARCH_OFFERS:
+          return Object.assign({}, state, {
+              searchForm: action.searchForm,
+          });
+      case ADD_OFFER_SUCCESS:
+          return Object.assign({}, state, {
+              showModal: false,
+          });
+      default:
+          return state;
+
+      }
+
 }
 
 export default offersReducer;
