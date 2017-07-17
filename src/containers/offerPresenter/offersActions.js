@@ -3,7 +3,7 @@ export const FETCH_OFFERS= 'app/offerPresenter/FETCH_OFFERS';
 export const FETCH_OFFER= 'app/offerPresenter/FETCH_OFFER';
 export const OFFER_RECEIVED= 'app/offerPresenter/OFFER_RECEIVED';
 
-export const SHOW_MODAL= 'app/offerPresenter/SHOW_MODAL';
+export const SHOW_MODAL_DETAILS= 'app/offerPresenter/SHOW_MODAL_DETAILS';
 
 
 export const fetchOffers = () => ({
@@ -28,7 +28,7 @@ export const fetchOffer = (id) => ({
 
 export const showModalDetails = () => (
     {
-        type: SHOW_MODAL,
+        type: SHOW_MODAL_DETAILS,
     }
 );
 

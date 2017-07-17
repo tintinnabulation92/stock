@@ -16,10 +16,10 @@ const makeSelectDetailsOffer = () => createSelector(
     }
 );
 
-const makeSelectShowModal = () => createSelector(
+const makeSelectShowModalDetails = () => createSelector(
   selectExampleDomain(),
   (substate) => {
-    return substate.showModal;
+    return substate.showModalDetails;
   }
 );
 
@@ -28,7 +28,7 @@ export {
 
   makeSelectOffer,
   makeSelectDetailsOffer,
-  makeSelectShowModal,
+  makeSelectShowModalDetails,
    
 };
 
