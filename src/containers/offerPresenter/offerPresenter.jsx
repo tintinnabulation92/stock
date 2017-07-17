@@ -4,7 +4,7 @@ import {createStructuredSelector} from "reselect";
 import OfferPresenterComponent from "../../components/offerPresenterComponent/offerPresenterComponent";
 
 import OfferDetailsComponent from "../../components/offerDetailsComponent/offerDetailsComponent";
-import {makeSelectOffer,makeSelectDetailsOffer,makeSelectShowModalDetails} from "./offersSelectors";
+import {makeSelectDetailsOffer,makeSelectShowModalDetails} from "./offersSelectors";
 import {fetchOffers,fetchOffer,showModalDetails} from "./offersActions";
 
 
