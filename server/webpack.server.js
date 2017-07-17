@@ -22,6 +22,7 @@ const host = customHost || null; // Let http.Server use its default IPv6/4 host
 const prettyHost = customHost || 'localhost';
 
 const port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080;
+const contextPath = `/${process.env.CONTEXT_PATH || ''}/`.replace(/\/{2,}|\/$/g, '/');
 
 const middleware = devMiddleware(compiler, {
   publicPath: config.output.publicPath,
@@ -45,7 +46,7 @@ proxy.on('proxyRes', (proxyRes) => {
 app.use(middleware);
 app.use(hotMiddleware(compiler));
 
-app.use('/api', (req, res) => {
+app.use(`${contextPath}api`, (req, res) => {
     proxy.web(req, res);
 });
 
