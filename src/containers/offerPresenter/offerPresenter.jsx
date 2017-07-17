@@ -17,7 +17,7 @@ class OffersPresenter extends React.PureComponent {
     render() {
         return (
             <div>
-                <h2>Witaj na naszej giełdzie!</h2>
+                
                 <SearchOffersComponent onSubmit={this.props.searchOffers}/>
                 <OfferPresenterComponent offers={this.props.offers}/>
                 <button onClick={this.props.showModal}>Dodaj ofertę!</button>
@@ -32,13 +32,13 @@ OffersPresenter.propTypes = {
     offers: PropTypes.array,
     showModal: PropTypes.func,
     modalVisible: PropTypes.bool,
-    searchOffers: PropTypes.func
+    searchOffers: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
     offers: makeSelectOffer(),
     modalVisible: makeSelectShowModal(),
-});
+  });
 
 const mapDispatchToProps = {
     fetchOffers,

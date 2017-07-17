@@ -1,4 +1,5 @@
 import React, {PropTypes} from "react";
+import {Link} from 'react-router';
 
 const OfferTable = ({offers}) =>
     (
@@ -15,6 +16,7 @@ const OfferTable = ({offers}) =>
                     <th>Cena</th>
                     <th>Jednostka</th>
                     <th>Data</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -27,6 +29,7 @@ const OfferTable = ({offers}) =>
                         <td>{offer.price}</td>
                         <td>{offer.massUnit.toLowerCase()}</td>
                         <td>{new Date(offer.publishDate).toLocaleDateString()}</td>
+                        <td><Link to="editOffer">edytuj</Link></td>
                     </tr>)}
                 </tbody>
             </table>
