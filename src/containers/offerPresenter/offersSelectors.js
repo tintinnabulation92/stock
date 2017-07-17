@@ -12,7 +12,7 @@ const makeSelectOffer = () => createSelector(
 const makeSelectDetailsOffer = () => createSelector(
     selectExampleDomain(),
     (substate) => {
-        return substate.offerFetched;    // offerFetched?
+        return substate.offerFetched;  
     }
 );
 

@@ -7,7 +7,7 @@ import {
     FETCH_OFFERS,
     FETCH_OFFER,
     offersReceived,
-    offerReceived,   // ?? edit 
+    offerReceived,    
 } from './offersActions';
 
 export function* fetchOffersSaga(action) {
@@ -32,7 +32,6 @@ export function* fetchOffersSaga(action) {
 
 export function* fetchDetailedOfferSaga(action) {
     const endpoint = `/offer/${action.id}`;
-    /* const endpoint = `/offer/${action.offerID}`;*/
     const contextPath = getContext();
     const url = `${contextPath}/api/${endpoint}`
     console.log(url)
@@ -56,9 +55,7 @@ export function* rootSaga() {
     const watchSendFiles = yield takeLatest(FETCH_OFFERS, fetchOffersSaga);
 
     const watchFetchOffer = yield takeLatest(FETCH_OFFER, fetchDetailedOfferSaga);
-   // const watchClickedButton = yield takeLatest(SHOW_OFFER,fetchOffersSaga);
-
-   // const watchDetailedOffer = yield  takeLatest(FETCH_SINGLE_OFFER_DETAILS, getDetailedOfferSaga);
+   
 }
 
 export default rootSaga;

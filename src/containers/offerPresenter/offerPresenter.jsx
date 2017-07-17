@@ -40,7 +40,7 @@ const mapStateToProps = createStructuredSelector({
     modalVisible: makeSelectShowModal(),
 });
 
-const mapDispatchToProps = { //metody
+const mapDispatchToProps = { 
     fetchOffers,
     fetchOffer,
     showModalDetails, 
@@ -48,27 +48,3 @@ const mapDispatchToProps = { //metody
 
 export default connect(mapStateToProps, mapDispatchToProps)(OffersPresenter);
 
-
-//import {showOffer} from "./offersActions";
-//import {fetchSingleOfferDetails} from "./offersActions";
-
-
-//import OfferDetailsComponent from "../../components/offerPresenterComponent/offerDetailsComponent";
-
-/*class OffersPresenter extends React.PureComponent {
-
-    componentWillMount() {
-        this.props.fetchOffers();
-
-    }
-
-    render() {
-        return (
-            <div className={cls.test}>
-                <h2>Witaj na naszej giełdzie!</h2>
-
-                <OfferPresenterComponent offers={this.props.offers}/>
-        );
-    }
-}*/
-//function-based component

@@ -41,7 +41,7 @@ const OfferTable = ({offers,isOpen,showModalDetails,offerFetched,showOffer}) => 
                 </tbody>
             </table>
             <Modal isOpen = {isOpen} contentLabel = "Modal">
-                <button type="button" onClick = {showModalDetails}> Close modal dialog </button>
+                <button type="button" onClick = {showModalDetails}> Zamknij szczegóły oferty </button>
                 {
                     offerFetched && <table>
                         <thead>
