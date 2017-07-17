@@ -26,7 +26,7 @@ module.exports = {
     }),
     new webpack.EnvironmentPlugin([
       "NODE_ENV",
-      "BACKEND_API",
+      "CONTEXT_PATH",
     ]),
   ],
   module: {
