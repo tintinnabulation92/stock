@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {createStructuredSelector} from "reselect";
 import OfferPresenterComponent from "../../components/offerPresenterComponent/offerPresenterComponent";
 
-import OfferDetailsComponent from "../../components/offerDetailsComponent/offerDetailsComponent";
+
 import {makeSelectDetailsOffer,makeSelectShowModalDetails} from "./offersSelectors";
 import {fetchOffers,fetchOffer,showModalDetails} from "./offersActions";
 
@@ -12,7 +12,7 @@ import SearchOffersComponent from "../../components/searchOffersComponent/search
 import {showModal, addOffer,searchOffers} from './offersActions';
 import {makeSelectOffer, makeSelectShowModal} from './offersSelectors';
 import AddOfferComponent from '../../components/addOfferComponent/addOfferComponent'
-
+import OfferDetailsComponent from '../../components/OfferDetailsComponent/OfferDetailsComponent'
 
 class OffersPresenter extends React.PureComponent {
 
@@ -34,7 +34,7 @@ class OffersPresenter extends React.PureComponent {
                 <button onClick={this.props.showModal}>Dodaj ofertę!</button>
                 <button className="expand-offers-button" onClick={this.props.fetchOffers}>Pokaż wszystkie oferty</button>
                 <AddOfferComponent isOpen={this.props.modalVisible} addOffer={this.props.addOffer} showModal={this.props.showModal}/>
-                <OfferDetailsComponent />
+                
             </div>
         );
     }

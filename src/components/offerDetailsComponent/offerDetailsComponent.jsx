@@ -1,15 +1,11 @@
 import React, {PropTypes} from "react";
 import Modal from 'react-modal';
+import {Link} from 'react-router';
 
-
-const OfferDetailsComponent = ({visible, popoutModalWindow}) => {
+const OfferDetailsComponent = ({offer,visible, popoutModalWindow}) => {
     return (
         <div>
-            <Modal id="showDetails" visible ={visible} contentLabel = "Modal">
-                <h1> Modal View - Offer Details Component</h1>
-                <button onClick={popoutModalWindow}> Modal.Acton </button>
-            </Modal>
-
+            <button type="button" onClick={() => showOffer(offer.id)} className="details-offer-button"> Pokaż szczegóły oferty</button>
         </div>
     );
 }

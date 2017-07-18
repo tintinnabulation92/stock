@@ -36,7 +36,7 @@ const OfferTable = ({offers,isOpen,showModalDetails,offerFetched,showOffer}) => 
                         <td>{offer.price}</td>
                         <td>{offer.massUnit.toLowerCase()}</td>
                         <td>{new Date(offer.publishDate).toLocaleDateString()}</td>
-                        <td> <button type="button" onClick={() => showOffer(offer.id)} className="details-offer-button"> Pokaż szczegóły oferty</button> </td>
+                        <td> <OfferDetailsComponent/> </td>
                         <td><Link to="editOffer">edytuj</Link></td>
 
                     </tr>)}
