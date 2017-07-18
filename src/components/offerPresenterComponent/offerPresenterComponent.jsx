@@ -4,7 +4,7 @@ import {Link} from 'react-router';
 
 
 const OfferTable = ({offers,isOpen,showModalDetails,offerFetched,showOffer}) => {
-    console.log('received offer', offerFetched && offerFetched.id);
+    
     return (
         <div>
             <h3>Oto oferty znajdujące się w bazie: </h3>
@@ -20,8 +20,7 @@ const OfferTable = ({offers,isOpen,showModalDetails,offerFetched,showOffer}) => 
                     <th>Jednostka</th>
                     <th>Data</th>
                     <th>Szczegóły Oferty</th>
-                    <th> </th>
-
+                    
                 </tr>
                 </thead>
                 <tbody>

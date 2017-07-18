@@ -28,7 +28,6 @@ export function* fetchOffersSaga(action) {
 
     try {
         const res = yield call(request, url, options);
-        console.log(res);
         yield put(offersReceived(res.json));
     } catch (err) {
         yield put(fetchOffersError('ERROR WHILE FETCHING OFFERS'));
@@ -39,7 +38,6 @@ export function* fetchDetailedOfferSaga(action) {
     const endpoint = `/offer/${action.id}`;
     const contextPath = getContext();
     const url = `${contextPath}/${endpoint}`
-    console.log(url)
     const options = {
         method: 'GET',
         mode: 'cors',
@@ -48,7 +46,6 @@ export function* fetchDetailedOfferSaga(action) {
 
     try {
         const res = yield call(request, url, options);
-        console.log(res);
         yield put(offerReceived(res.json));
     } catch (err) {
         yield put(offerReceived('ERROR WHILE FETCHING OFFER'));
