@@ -4,15 +4,17 @@ import {createStructuredSelector} from "reselect";
 import OfferPresenterComponent from "../../components/offerPresenterComponent/offerPresenterComponent";
 
 
-import {makeSelectDetailsOffer,makeSelectShowModalDetails} from "./offersSelectors";
+import {makeSelectFetchedOffer,makeSelectShowModalDetails} from "./offersSelectors";
 import {fetchOffers,fetchOffer,showModalDetails} from "./offersActions";
 
 
 import SearchOffersComponent from "../../components/searchOffersComponent/searchOffersComponent";
 import {showModal, addOffer,searchOffers} from './offersActions';
-import {makeSelectOffer, makeSelectShowModal} from './offersSelectors';
+import {makeSelectOffers, makeSelectShowModal} from './offersSelectors';
 import AddOfferComponent from '../../components/addOfferComponent/addOfferComponent'
 import OfferDetailsComponent from '../../components/OfferDetailsComponent/OfferDetailsComponent'
+
+import cls from "./offerPresenter.css"
 
 class OffersPresenter extends React.PureComponent {
 
@@ -28,11 +30,11 @@ class OffersPresenter extends React.PureComponent {
                 <OfferPresenterComponent 
                     offers={this.props.offers} 
                     showOffer={this.props.fetchOffer} 
-                    isOpen = {this.props.modalDetailsVisible} 
+                    isModalOfferDetailsVisible = {this.props.modalDetailsVisible} 
                     showDetailsModal = {this.props.showModalDetails} 
                     fetchedOffer = {this.props.offerFetched}/> 
                 <button onClick={this.props.showModal}>Dodaj ofertę!</button>
-                <button className="expand-offers-button" onClick={this.props.fetchOffers}>Pokaż wszystkie oferty</button>
+                <button className={cls.expandOffersButton} onClick={this.props.fetchOffers}>Pokaż wszystkie oferty</button>
                 <AddOfferComponent isOpen={this.props.modalVisible} addOffer={this.props.addOffer} showModal={this.props.showModal}/>
                 
             </div>
@@ -53,8 +55,8 @@ OffersPresenter.propTypes = {
 };
 
 const mapStateToProps = createStructuredSelector({
-    offers: makeSelectOffer(),
-    offerFetched: makeSelectDetailsOffer(),
+    offers: makeSelectOffers(),
+    offerFetched: makeSelectFetchedOffer(),
     modalDetailsVisible: makeSelectShowModalDetails(),
     modalVisible: makeSelectShowModal(),
   });

@@ -2,17 +2,17 @@ import { createSelector } from 'reselect';
 
 const selectExampleDomain = () => (state) => state.offersReducer;
 
-const makeSelectOffer = () => createSelector(
+const makeSelectOffers = () => createSelector(
   selectExampleDomain(),
   (substate) => {
     return substate.offers;
   }
 );
 
-const makeSelectDetailsOffer = () => createSelector(
+const makeSelectFetchedOffer = () => createSelector(
     selectExampleDomain(),
     (substate) => {
-        return substate.offerFetched;
+        return substate.fetchedOffer;  //to jest poprawme?
     }
 );
 
@@ -36,8 +36,8 @@ const makeSelectShowModal = () => createSelector(
 
 export {
 
-  makeSelectOffer,
-  makeSelectDetailsOffer,
+  makeSelectOffers,
+  makeSelectFetchedOffer,
   makeSelectShowModalDetails,
     makeSelectShowModal,
 

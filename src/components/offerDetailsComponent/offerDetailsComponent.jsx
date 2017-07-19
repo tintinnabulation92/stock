@@ -2,10 +2,10 @@ import React, {PropTypes} from "react";
 import Modal from 'react-modal';
 import {Link} from 'react-router';
 
-const OfferDetailsComponent = ({isOpen,showDetailsModal,offer}) => {
+const OfferDetailsComponent = ({isModalOfferDetailsVisible,showDetailsModal,offer}) => {
     return (
         <div>
-           <Modal isOpen = {isOpen} contentLabel = "Modal">
+           <Modal isOpen = {isModalOfferDetailsVisible} contentLabel = "Modal">
                 <button type="button" onClick = {showDetailsModal}> Zamknij szczegóły oferty </button>
                 {
                     offer && <table>
@@ -42,7 +42,7 @@ const OfferDetailsComponent = ({isOpen,showDetailsModal,offer}) => {
 
 OfferDetailsComponent.propTypes = {
      offer: PropTypes.object,
-     isOpen: PropTypes.bool,
+     isModalOfferDetailsVisible: PropTypes.bool,
      showDetailsModal: PropTypes.func,
    
 }

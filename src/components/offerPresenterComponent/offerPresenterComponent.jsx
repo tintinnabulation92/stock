@@ -5,7 +5,7 @@ import OfferDetailsComponent from '../offerDetailsComponent/offerDetailsComponen
 import cls from "./offerPresenterComponent.css"
 
 
-const OfferTable = ({offers,isOpen,showDetailsModal,fetchedOffer,showOffer}) => {
+const OfferTable = ({offers,isModalOfferDetailsVisible,showDetailsModal,fetchedOffer,showOffer}) => {
     
     return (
         <div>
@@ -45,7 +45,7 @@ const OfferTable = ({offers,isOpen,showDetailsModal,fetchedOffer,showOffer}) => 
                 </tbody>
             </table>
 
-            <OfferDetailsComponent isOpen = {isOpen} showDetailsModal = {showDetailsModal} offer = {fetchedOffer}/>
+            <OfferDetailsComponent isModalOfferDetailsVisible = {isModalOfferDetailsVisible} showDetailsModal = {showDetailsModal} offer = {fetchedOffer}/>
            
         </div>
        );
@@ -56,7 +56,7 @@ OfferTable.propTypes = {
     offers: PropTypes.array,
     fetchedOffer: PropTypes.object,
     showOffer: PropTypes.func,
-    isOpen: PropTypes.bool,
+    isModalOfferDetailsVisible: PropTypes.bool,
     showDetailsModal: PropTypes.func,
 
 
