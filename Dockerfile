@@ -1,4 +1,4 @@
-FROM node:6.11.0
+FROM node 6.3.1
 
 RUN mkdir -p /usr/src/app
 ADD . /usr/src/app
