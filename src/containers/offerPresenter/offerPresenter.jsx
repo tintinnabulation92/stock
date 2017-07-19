@@ -2,11 +2,14 @@ import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {createStructuredSelector} from "reselect";
 import OfferPresenterComponent from "../../components/offerPresenterComponent/offerPresenterComponent";
+import {makeSelectFetchedOffer,makeSelectShowModalDetails} from "./offersSelectors";
+import {fetchOffers,fetchOffer,showModalDetails} from "./offersActions";
 import SearchOffersComponent from "../../components/searchOffersComponent/searchOffersComponent";
-import {fetchOffers, showModal, addOffer,searchOffers} from './offersActions';
-import {makeSelectOffer, makeSelectShowModal} from './offersSelectors';
+import {showModal, addOffer,searchOffers} from './offersActions';
+import {makeSelectOffers, makeSelectShowModal} from './offersSelectors';
 import AddOfferComponent from '../../components/addOfferComponent/addOfferComponent'
-
+import OfferDetailsComponent from '../../components/OfferDetailsComponent/OfferDetailsComponent'
+import cls from "./offerPresenter.css"
 
 class OffersPresenter extends React.PureComponent {
 
@@ -17,11 +20,21 @@ class OffersPresenter extends React.PureComponent {
     render() {
         return (
             <div>
-                
+                <h2> Witaj w  Agro Stock </h2>
                 <SearchOffersComponent onSubmit={this.props.searchOffers}/>
-                <OfferPresenterComponent offers={this.props.offers}/>
+                <OfferPresenterComponent 
+                    offers={this.props.offers} 
+                    showOffer={this.props.fetchOffer} 
+                    isModalOfferDetailsVisible = {this.props.modalDetailsVisible} 
+                    showDetailsModal = {this.props.showModalDetails} 
+                    fetchedOffer = {this.props.offerFetched}/> 
                 <button onClick={this.props.showModal}>Dodaj ofertę!</button>
+                <button className={cls.expandOffersButton} onClick={this.props.fetchOffers}>Pokaż wszystkie oferty</button>
                 <AddOfferComponent isOpen={this.props.modalVisible} addOffer={this.props.addOffer} showModal={this.props.showModal}/>
+                <OfferDetailsComponent isModalOfferDetailsVisible = {this.props.modalDetailsVisible} 
+                    showDetailsModal = {this.props.showModalDetails} 
+                    offer = {this.props.offerFetched}/>
+                
             </div>
         );
     }
@@ -30,18 +43,26 @@ class OffersPresenter extends React.PureComponent {
 OffersPresenter.propTypes = {
     fetchOffers: PropTypes.func.isRequired,
     offers: PropTypes.array,
+    fetchOffer:PropTypes.func,
+    offerFetched:PropTypes.object,
+    showModalDetails: PropTypes.func,
+    modalDetailsVisible: PropTypes.bool,
     showModal: PropTypes.func,
     modalVisible: PropTypes.bool,
     searchOffers: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
-    offers: makeSelectOffer(),
+    offers: makeSelectOffers(),
+    offerFetched: makeSelectFetchedOffer(),
+    modalDetailsVisible: makeSelectShowModalDetails(),
     modalVisible: makeSelectShowModal(),
   });
 
 const mapDispatchToProps = {
     fetchOffers,
+    fetchOffer,
+    showModalDetails,
     showModal,
     addOffer,
     searchOffers,

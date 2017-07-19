@@ -1,15 +1,28 @@
-import {createSelector} from 'reselect';
-
+import { createSelector } from 'reselect';
 
 const selectExampleDomain = () => (state) => state.offersReducer;
 
+const makeSelectOffers = () => createSelector(
+  selectExampleDomain(),
+  (substate) => {
+    return substate.offers;
+  }
+);
 
-const makeSelectOffer = () => createSelector(
+const makeSelectFetchedOffer = () => createSelector(
     selectExampleDomain(),
     (substate) => {
-        return substate.offers;
+        return substate.fetchedOffer;  
     }
 );
+
+const makeSelectShowModalDetails = () => createSelector(
+  selectExampleDomain(),
+  (substate) => {
+    return substate.showModalDetails;
+  }
+);
+
 
 const makeSelectShowModal = () => createSelector(
     selectExampleDomain(),
@@ -22,6 +35,10 @@ const makeSelectShowModal = () => createSelector(
 
 
 export {
-    makeSelectOffer,
-    makeSelectShowModal,
+
+  makeSelectOffers,
+  makeSelectFetchedOffer,
+  makeSelectShowModalDetails,
+  makeSelectShowModal,
+
 };

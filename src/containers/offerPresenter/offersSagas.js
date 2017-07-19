@@ -1,17 +1,21 @@
 import {take, takeLatest, call, cancel, put, select} from 'redux-saga/effects';
 import {getContext} from '../../utils/context';
 import request from '../../utils/request'
+
 import {
     FETCH_OFFERS,
+    FETCH_OFFER,
     ADD_OFFER,
     SEARCH_OFFERS,
     fetchOffers,
     offersReceived,
+    offerReceived,
     addOfferSuccess,
     fetchOffersError,
     addOfferError,
     searchOffersError
 } from './offersActions';
+
 export function* fetchOffersSaga(action) {
     const endpoint = 'offers';
     const contextPath = getContext();
@@ -21,6 +25,7 @@ export function* fetchOffersSaga(action) {
         mode: 'cors',
         headers: {'Content-Type': 'application/json'},
     }
+
     try {
         const res = yield call(request, url, options);
         yield put(offersReceived(res.json));
@@ -28,6 +33,26 @@ export function* fetchOffersSaga(action) {
         yield put(fetchOffersError('ERROR WHILE FETCHING OFFERS'));
     }
 }
+
+export function* fetchDetailedOfferSaga(action) {
+    const endpoint = `/offer/${action.id}`;
+    const contextPath = getContext();
+    const url = `${contextPath}/${endpoint}`
+    const options = {
+        method: 'GET',
+        mode: 'cors',
+        headers: {'Content-Type': 'application/json'},
+    }
+
+    try {
+        const res = yield call(request, url, options);
+        yield put(offerReceived(res.json));
+    } catch (err) {
+        yield put(offerReceived('ERROR WHILE FETCHING OFFER'));
+    }
+}
+
+
 export function* addOfferSaga(action) {
     const endpoint = 'offer/create';
     const contextPath = getContext();
@@ -82,7 +107,11 @@ export function* searchOffersSaga(action) {
 }
 export function* rootSaga() {
     const watchSendFiles = yield takeLatest(FETCH_OFFERS, fetchOffersSaga);
+
+    const watchFetchOffer = yield takeLatest(FETCH_OFFER, fetchDetailedOfferSaga);
+
     const sendOffer= yield takeLatest(ADD_OFFER,addOfferSaga)
     const filterOffers= yield takeLatest(SEARCH_OFFERS,searchOffersSaga)
 }
+
 export default rootSaga;
