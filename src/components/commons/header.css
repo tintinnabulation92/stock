@@ -1,0 +1,48 @@
+:local(.nav){
+  margin: auto;
+  max-width: 1170px;
+  color: #DDD8BC;
+  font-family: "Roboto", sans-serif;
+  padding-bottom: 10px;
+   
+}
+
+:local(a){
+  padding-left: 10px;
+  font-family: "Roboto", sans-serif;
+  color: #f4ebeb;
+  float: right;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  text-decoration: none;
+  transition: all 0.4s ease-in-out;
+  
+}
+
+:local(a):hover{
+    color: #c90404;
+    font-size: 18px;
+    transition: width 2s;
+    transition-delay: 1s;
+    
+}
+
+:local(.header){
+
+  padding: 20px 10px;
+  background-color: #302727;
+  border-radius: 5px;
+  top: 0;
+  left:0;
+  right:0;
+
+}
+
+:local(.background){
+ background-image: url('/assets/vegetables-header.jpg');
+}
+
+
+@media (max-width:600px) {
+    display:none;
+}

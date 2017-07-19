@@ -1,6 +1,47 @@
 :local(.expandOffersButton){
-    margin: 20px;
-    background-color: darkorange;
+    
+    background-color: #306b06;
     font-weight: bold;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    font-family: "Roboto", sans-serif;
+    padding-left: 3px;
+    font-style: bold;
+}
 
+:local(.expandOffersButton):hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    padding-left: 3px;
+    font-style: bold;
+    color: #fff;
+}
+
+:local(.addOffersButton){
+    background-color: #306b06;
+    font-weight: bold;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    font-family: "Roboto", sans-serif;
+    padding-left: 3px;
+    font-style: bold;
+}
+
+:local(.addOffersButton):hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    padding-left: 3px;
+    font-style: bold;
+    color: #fff;
+}
+
+:local(.mainGreeting){
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    transition: all 3s ease;
+}
+
+:local(.mainGreeting):hover{
+   font-size: 30px;
+   color: #F68B1D;
+   background-color: black;
+   padding: 20px;
 }

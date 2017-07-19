@@ -1,13 +1,28 @@
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
 table {
     border-collapse: collapse;
-    background-color: beige;
+    border: none;
+    
+    
 }
 
 td, th {
     padding: 10px;
     text-align: center;
+    
+    
 }
 
 table, th, td {
-    border: 1px solid black;
+    
+    
+}
+th {
+    background-color: #F1F1F1;
+    border-radius: 2px;
+    padding: 5px;
 }

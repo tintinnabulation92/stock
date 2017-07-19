@@ -20,7 +20,7 @@ class OffersPresenter extends React.PureComponent {
     render() {
         return (
             <div>
-                <h2> Witaj w  Agro Stock </h2>
+                <h2 className = {cls.mainGreeting}> Witaj w  Agro Stock </h2>
                 <SearchOffersComponent onSubmit={this.props.searchOffers}/>
                 <OfferPresenterComponent 
                     offers={this.props.offers} 
@@ -28,7 +28,7 @@ class OffersPresenter extends React.PureComponent {
                     isModalOfferDetailsVisible = {this.props.modalDetailsVisible} 
                     showDetailsModal = {this.props.showModalDetails} 
                     fetchedOffer = {this.props.offerFetched}/> 
-                <button onClick={this.props.showModal}>Dodaj ofertę!</button>
+                <button className={cls.addOffersButton} onClick={this.props.showModal}>Dodaj ofertę!</button>
                 <button className={cls.expandOffersButton} onClick={this.props.fetchOffers}>Pokaż wszystkie oferty</button>
                 <AddOfferComponent isOpen={this.props.modalVisible} addOffer={this.props.addOffer} showModal={this.props.showModal}/>
                 <OfferDetailsComponent isModalOfferDetailsVisible = {this.props.modalDetailsVisible} 
