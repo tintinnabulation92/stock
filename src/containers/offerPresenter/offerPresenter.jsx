@@ -2,18 +2,13 @@ import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {createStructuredSelector} from "reselect";
 import OfferPresenterComponent from "../../components/offerPresenterComponent/offerPresenterComponent";
-
-
 import {makeSelectFetchedOffer,makeSelectShowModalDetails} from "./offersSelectors";
 import {fetchOffers,fetchOffer,showModalDetails} from "./offersActions";
-
-
 import SearchOffersComponent from "../../components/searchOffersComponent/searchOffersComponent";
 import {showModal, addOffer,searchOffers} from './offersActions';
 import {makeSelectOffers, makeSelectShowModal} from './offersSelectors';
 import AddOfferComponent from '../../components/addOfferComponent/addOfferComponent'
 import OfferDetailsComponent from '../../components/OfferDetailsComponent/OfferDetailsComponent'
-
 import cls from "./offerPresenter.css"
 
 class OffersPresenter extends React.PureComponent {

@@ -1,6 +1,7 @@
 import React, {PropTypes} from "react";
 import Modal from 'react-modal';
 import {Link} from 'react-router';
+import cls from "./offerDetailsComponent.css"
 
 const OfferDetailsComponent = ({isModalOfferDetailsVisible,showDetailsModal,offer}) => {
     return (
@@ -44,8 +45,7 @@ OfferDetailsComponent.propTypes = {
      offer: PropTypes.object,
      isModalOfferDetailsVisible: PropTypes.bool,
      showDetailsModal: PropTypes.func,
-   
-}
+ }
 
 
 export default OfferDetailsComponent

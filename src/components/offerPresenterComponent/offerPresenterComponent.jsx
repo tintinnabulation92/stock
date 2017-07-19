@@ -22,7 +22,6 @@ const OfferTable = ({offers,isModalOfferDetailsVisible,showDetailsModal,fetchedO
                     <th>Jednostka</th>
                     <th>Data</th>
                     <th>Szczegóły Oferty</th>
-                    
                 </tr>
                 </thead>
                 <tbody>
@@ -58,9 +57,6 @@ OfferTable.propTypes = {
     showOffer: PropTypes.func,
     isModalOfferDetailsVisible: PropTypes.bool,
     showDetailsModal: PropTypes.func,
-
-
-
 }
 
 export default OfferTable
