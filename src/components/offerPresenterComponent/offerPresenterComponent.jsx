@@ -1,7 +1,7 @@
 import React, {PropTypes} from "react";
 import Modal from 'react-modal';
 import {Link} from 'react-router';
-import OfferDetailsComponent from '../offerDetailsComponent/offerDetailsComponent'
+import OfferDetailsComponent from '../offerDetailsComponent/offerDetailsComponent' // wyjebac to
 import cls from "./offerPresenterComponent.css"
 
 
