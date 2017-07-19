@@ -1,9 +1,11 @@
 import React, {PropTypes} from "react";
 import Modal from 'react-modal';
 import {Link} from 'react-router';
+import OfferDetailsComponent from '../offerDetailsComponent/offerDetailsComponent'
+import cls from "./offerPresenterComponent.css"
 
 
-const OfferTable = ({offers,isOpen,showModalDetails,offerFetched,showOffer}) => {
+const OfferTable = ({offers,isOpen,showDetailsModal,fetchedOffer,showOffer}) => {
     
     return (
         <div>
@@ -36,43 +38,15 @@ const OfferTable = ({offers,isOpen,showModalDetails,offerFetched,showOffer}) => 
                         <td>{offer.price}</td>
                         <td>{offer.massUnit.toLowerCase()}</td>
                         <td>{new Date(offer.publishDate).toLocaleDateString()}</td>
-                        <td> <button type="button" onClick={() => showOffer(offer.id)} className="details-offer-button"> Pokaż szczegóły oferty</button> </td>
+                        <td> <button type="button" onClick={() => showOffer(offer.id)} className={cls.buttonDetails}> Pokaż szczegóły oferty</button> </td>
                         <td><Link to="editOffer">edytuj</Link></td>
 
                     </tr>)}
                 </tbody>
             </table>
-            <Modal isOpen = {isOpen} contentLabel = "Modal">
-                <button type="button" onClick = {showModalDetails}> Zamknij szczegóły oferty </button>
-                {
-                    offerFetched && <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nazwa</th>
-                                <th>Typ oferty</th>
-                                <th>Kategoria</th>
-                                <th>Klasa</th>
-                                <th>Cena</th>
-                                <th>Jednostka</th>
-                                <th>Data</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>{offerFetched.id} </td>
-                                <td>{offerFetched.name.toLowerCase()}</td>
-                                <td>{offerFetched.offerType.toLowerCase()}</td>
-                                <td>{offerFetched.productGroup.toLowerCase()}</td>
-                                <td>{offerFetched.quality}</td>
-                                <td>{offerFetched.price}</td>
-                                <td>{offerFetched.massUnit.toLowerCase()}</td>
-                                <td>{new Date(offerFetched.publishDate).toLocaleDateString()}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                }
-            </Modal>
+
+            <OfferDetailsComponent isOpen = {isOpen} showDetailsModal = {showDetailsModal} offer = {fetchedOffer}/>
+           
         </div>
        );
 }
@@ -80,10 +54,10 @@ const OfferTable = ({offers,isOpen,showModalDetails,offerFetched,showOffer}) => 
 
 OfferTable.propTypes = {
     offers: PropTypes.array,
-    offerFetched: PropTypes.object,
+    fetchedOffer: PropTypes.object,
     showOffer: PropTypes.func,
     isOpen: PropTypes.bool,
-    showModalDetails: PropTypes.func,
+    showDetailsModal: PropTypes.func,
 
 
 
