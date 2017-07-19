@@ -44,7 +44,7 @@ const OfferTable = ({offers,isModalOfferDetailsVisible,showDetailsModal,fetchedO
                 </tbody>
             </table>
 
-            <OfferDetailsComponent isModalOfferDetailsVisible = {isModalOfferDetailsVisible} showDetailsModal = {showDetailsModal} offer = {fetchedOffer}/>
+            
            
         </div>
        );

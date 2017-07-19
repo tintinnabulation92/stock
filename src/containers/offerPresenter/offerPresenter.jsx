@@ -31,6 +31,9 @@ class OffersPresenter extends React.PureComponent {
                 <button onClick={this.props.showModal}>Dodaj ofertę!</button>
                 <button className={cls.expandOffersButton} onClick={this.props.fetchOffers}>Pokaż wszystkie oferty</button>
                 <AddOfferComponent isOpen={this.props.modalVisible} addOffer={this.props.addOffer} showModal={this.props.showModal}/>
+                <OfferDetailsComponent isModalOfferDetailsVisible = {this.props.modalDetailsVisible} 
+                    showDetailsModal = {this.props.showModalDetails} 
+                    offer = {this.props.offerFetched}/>
                 
             </div>
         );
